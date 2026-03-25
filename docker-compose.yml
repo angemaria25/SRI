@@ -1,0 +1,29 @@
+services:
+  sistema_principal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paperscan_sistema
+    volumes:
+      - ./datos:/app/datos
+      - ./local:/app/local
+    command:
+      [
+        "python",
+        "main.py",
+        "--consulta",
+        "${CONSULTA_USUARIO:-recuperacion de informacion cientifica}",
+        "--max-local",
+        "${MAX_DOCUMENTOS_LOCALES:-3000}",
+        "--max-web",
+        "${MAX_RESULTADOS_WEB:-30}",
+      ]
+
+  descargador_local:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paperscan_descargador
+    volumes:
+      - ./local:/app/local
+    command: ["python", "local/scrapping.py"]

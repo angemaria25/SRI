@@ -1,0 +1,96 @@
+\documentclass[runningheads]{llncs}
+
+\begin{document}
+
+\title{PaperScan: Sistema de Recuperacion de Informacion para Investigacion Cientifica y Academica}
+\author{Equipo PaperScan}
+\institute{Universidad}
+\maketitle
+
+\begin{abstract}
+Este documento describe la arquitectura y el estado actual del sistema PaperScan,
+un proyecto de recuperacion de informacion orientado al dominio de investigacion
+cientifica y academica. Se presentan los componentes de la Primera Entrega:
+adquisicion, indexacion, recuperacion no basica y base vectorial inicial, usando
+como base los PDF locales y con respaldo web en arXiv cuando la recuperacion local
+es insuficiente.
+\keywords{recuperacion de informacion \and arXiv \and indexacion \and modelo de lenguaje}
+\end{abstract}
+
+\section{Introduccion}
+PaperScan es un sistema de recuperacion de informacion que obtiene documentos
+desde un repositorio local de PDF, construye estructuras de indexacion y aplica
+un modelo no basico para recuperar documentos relevantes. Cuando los resultados
+locales son insuficientes, activa una busqueda de respaldo en arXiv.
+
+\section{Dominio}
+El dominio seleccionado es \textit{investigacion cientifica y academica}, con
+fuentes de datos basadas en publicaciones de arXiv.
+
+\section{Arquitectura Modular}
+La arquitectura del proyecto se organiza en modulos:
+\begin{itemize}
+\item Adquisicion de datos.
+\item Indexacion.
+\item Recuperacion.
+\item Base vectorial.
+\item RAG (pendiente).
+\item Posicionamiento (pendiente).
+\item Busqueda web (pendiente).
+\item Modulos opcionales: expansion y retroalimentacion, multimodal,
+recomendacion y evaluacion (pendientes).
+\end{itemize}
+
+\section{Implementacion Actual}
+\subsection{Adquisicion de datos}
+Se construye un corpus local en JSONL a partir de los PDF ubicados en
+\texttt{local/local\_papers}. Para cada documento se extrae texto y se generan
+campos estructurados para indexacion.
+
+Adicionalmente, se implementa un cliente de arXiv con politicas de crawling
+(demora entre solicitudes, tamano de lote y reintentos) para respaldo web.
+
+\subsection{Indexacion}
+Se realiza preprocesamiento de texto y construccion de indice invertido,
+persistiendo estructuras en disco para uso posterior.
+
+\subsection{Recuperacion}
+Se implementa un modelo probabilistico de lenguaje (Query Likelihood) con
+suavizado Jelinek-Mercer para ranking inicial de resultados locales.
+
+\subsection{Base vectorial}
+Se construyen representaciones TF-IDF para almacenamiento vectorial inicial.
+
+\subsection{Salida de resultados}
+El sistema persiste resultados y evidencia de ejecucion en \texttt{datos}:
+corpus bruto, indice invertido, vectores, estadisticas del corpus local y
+resultados de recuperacion.
+
+\section{Flujo Operacional}
+\begin{enumerate}
+\item Cargar y transformar PDF locales a corpus JSONL.
+\item Indexar el corpus y construir base vectorial inicial.
+\item Ejecutar recuperacion local (modelo de lenguaje y similitud vectorial).
+\item Si la recuperacion local no alcanza un umbral minimo de resultados,
+activar respaldo web en arXiv.
+\item Guardar respuesta final y resultados en disco.
+\end{enumerate}
+
+\section{Ejecucion}
+El punto de entrada del sistema es \texttt{main.py}. La descarga local de PDF
+se realiza desde \texttt{local/scrapping.py}. La consulta se puede pasar por
+linea de comandos con \texttt{--consulta}.
+
+\section{Trabajo Futuro}
+Las siguientes fases incorporaran integracion RAG, modulo de posicionamiento,
+busqueda web automatica e interfaz visual completa.
+
+\section{Bibliografia Base}
+\begin{thebibliography}{1}
+\bibitem{croft2010}
+Croft, W. B., Metzler, D., Strohman, T.:
+Search Engines: Information Retrieval in Practice.
+Addison-Wesley (2010)
+\end{thebibliography}
+
+\end{document}

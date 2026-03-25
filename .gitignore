@@ -1,0 +1,6 @@
+.venv/
+Orientacion/
+__pycache__/
+*.pyc
+*.pdf
+Orientacion_extracted.txt

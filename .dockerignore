@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.venv/
+.git/
+.gitignore
+datos/
+local/local_papers/
+Orientacion.pdf
+Orientacion_extracted.txt
