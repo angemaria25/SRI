@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import random
 import time
 import xml.etree.ElementTree as ET
@@ -10,9 +11,12 @@ from urllib.robotparser import RobotFileParser
 
 import requests
 
-URL_API_ARXIV = "http://export.arxiv.org/api/query"
+URL_API_ARXIV = "https://arxiv.org/api/query"
 ESPACIO_NOMBRES_ATOM = {"atom": "http://www.w3.org/2005/Atom"}
-ENCABEZADOS_HTTP = {"User-Agent": "PaperScan/1.0 (proyecto academico SRI)"}
+CORREO_CONTACTO = os.getenv("ARXIV_CONTACTO_EMAIL", "tu_correo@dominio.com")
+ENCABEZADOS_HTTP = {
+    "User-Agent": f"PaperScan/1.0 (contacto: {CORREO_CONTACTO})"
+}
 
 
 @dataclass

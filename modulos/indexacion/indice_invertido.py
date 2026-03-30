@@ -17,12 +17,12 @@ class IndiceInvertido:
     def construir(
         self,
         documentos: list[dict],
-        campos_texto: tuple[str, ...] = ("titulo", "resumen", "title", "summary"),
+        campos_texto: tuple[str, ...] = ("titulo", "resumen"),
     ) -> None:
         preprocesador = PreprocesadorTexto()
 
         for documento in documentos:
-            doc_id = documento.get("id_documento") or documento.get("paper_id", "")
+            doc_id = documento.get("id_documento", "")
             texto_completo = " ".join(documento.get(campo, "") for campo in campos_texto)
             terminos = preprocesador.tokenizar(texto_completo)
 

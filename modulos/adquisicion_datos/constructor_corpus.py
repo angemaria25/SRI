@@ -43,13 +43,13 @@ def generar_estadisticas_corpus(documentos: list[dict]) -> dict:
     fechas_publicacion = []
 
     for documento in documentos:
-        resumen = (documento.get("resumen") or documento.get("summary") or "").strip()
+        resumen = (documento.get("resumen") or "").strip()
         longitudes_resumen.append(len(resumen.split()))
 
-        for categoria in documento.get("categorias", []) or documento.get("categories", []):
+        for categoria in documento.get("categorias", []):
             categorias[categoria] += 1
 
-        fecha = documento.get("publicado") or documento.get("published")
+        fecha = documento.get("publicado")
         if fecha:
             fechas_publicacion.append(fecha)
 

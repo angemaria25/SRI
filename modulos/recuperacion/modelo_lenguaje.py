@@ -29,14 +29,22 @@ class RecuperadorModeloLenguaje:
         if not terminos_consulta:
             return []
 
+        terminos_existentes = [
+            termino for termino in terminos_consulta if termino in self.indice.indice
+        ]
+        if not terminos_existentes:
+            return []
+
         puntajes: dict[str, float] = {}
-        candidatos = set(self.indice.longitudes_documentos.keys())
+        candidatos = self._candidatos_desde_indice(terminos_existentes)
+        if not candidatos:
+            return []
 
         for doc_id in candidatos:
             puntaje_doc = 0.0
             longitud_doc = max(int(self.indice.longitudes_documentos[doc_id]), 1)
 
-            for termino in terminos_consulta:
+            for termino in terminos_existentes:
                 tf_doc = self._frecuencia_termino_en_documento(termino, doc_id)
                 tf_coleccion = self.conteos_coleccion.get(termino, 0)
 
@@ -47,11 +55,17 @@ class RecuperadorModeloLenguaje:
                     + self.lambda_parametro * prob_coleccion
                 )
 
-                puntaje_doc += math.log(prob_suavizada + 1e-12)
+                if prob_suavizada <= 0.0:
+                    continue
+                puntaje_doc += math.log(prob_suavizada)
 
             puntajes[doc_id] = puntaje_doc
 
-        ranking = sorted(puntajes.items(), key=lambda item: item[1], reverse=True)[:top_k]
+        ranking = sorted(
+            puntajes.items(),
+            key=lambda item: (item[1], item[0]),
+            reverse=True,
+        )[:top_k]
         return [
             {
                 "doc_id": doc_id,
@@ -60,6 +74,13 @@ class RecuperadorModeloLenguaje:
             }
             for doc_id, puntaje in ranking
         ]
+
+    def _candidatos_desde_indice(self, terminos_consulta: list[str]) -> set[str]:
+        candidatos: set[str] = set()
+        for termino in terminos_consulta:
+            for posting in self.indice.indice.get(termino, []):
+                candidatos.add(posting["doc_id"])
+        return candidatos
 
     def _frecuencia_termino_en_documento(self, termino: str, doc_id: str) -> int:
         postings = self.indice.indice.get(termino, [])

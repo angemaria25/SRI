@@ -24,7 +24,23 @@ def _guardar_json(ruta: Path, datos: dict | list) -> None:
 def _requiere_respaldo_web(resultados_locales: list[dict], minimo_resultados: int = 3) -> bool:
     if len(resultados_locales) < minimo_resultados:
         return True
+
+    puntajes = [float(item.get("puntaje", 0.0)) for item in resultados_locales]
+    if not puntajes:
+        return True
+
+    if len(set(round(puntaje, 10) for puntaje in puntajes)) <= 1:
+        return True
+
     return False
+
+
+def _resultados_vectoriales_insuficientes(resultados_vectoriales: list[dict]) -> bool:
+    if not resultados_vectoriales:
+        return True
+
+    similitudes = [float(item.get("similitud", 0.0)) for item in resultados_vectoriales]
+    return max(similitudes, default=0.0) <= 0.0
 
 
 def ejecutar_flujo_principal(
@@ -88,7 +104,9 @@ def ejecutar_flujo_principal(
         "resultados_web": [],
     }
 
-    if _requiere_respaldo_web(resultados_locales):
+    if _requiere_respaldo_web(resultados_locales) or _resultados_vectoriales_insuficientes(
+        resultados_vectoriales_formato
+    ):
         print("Resultados locales insuficientes. Se activa busqueda de respaldo en arXiv...")
 
         try:

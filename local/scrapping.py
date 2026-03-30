@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import random
 import re
 import time
@@ -8,12 +9,13 @@ from pathlib import Path
 
 import requests
 
-ARXIV_API_URL = "http://export.arxiv.org/api/query"
+ARXIV_API_URL = "https://arxiv.org/api/query"
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 
 TOTAL_PAPERS = 3000
 BATCH_SIZE = 100
-REQUEST_DELAY_SECONDS = 1.0
+# arXiv recomienda hacer solicitudes espaciadas para evitar limites de tasa.
+REQUEST_DELAY_SECONDS = 3.0
 DOWNLOAD_TIMEOUT = 60
 MAX_START_OFFSET = 5000
 MAX_EMPTY_ROUNDS = 30
@@ -21,8 +23,9 @@ MAX_FETCH_RETRIES = 4
 MAX_DOWNLOAD_RETRIES = 3
 BACKOFF_BASE_SECONDS = 2
 MAX_TITLE_LENGTH = 120
+CONTACT_EMAIL = os.getenv("ARXIV_CONTACTO_EMAIL", "tu_correo@dominio.com")
 REQUEST_HEADERS = {
-    "User-Agent": "PaperScan/1.0 (academic project; contact: local)"
+    "User-Agent": f"PaperScan/1.0 (contacto: {CONTACT_EMAIL})"
 }
 
 # Diverse queries to increase topical variety while keeping a scientific/academic focus.
@@ -127,6 +130,33 @@ def fetch_entries(search_query: str, start: int, max_results: int) -> list[ET.El
             response.raise_for_status()
             root = ET.fromstring(response.text)
             return root.findall("atom:entry", ATOM_NS)
+        except requests.HTTPError as error:
+            estado = error.response.status_code if error.response is not None else None
+            # Si arXiv responde 429, respetamos Retry-After si existe.
+            if estado == 429:
+                retry_after = 0.0
+                if error.response is not None:
+                    encabezado = error.response.headers.get("Retry-After", "0").strip()
+                    try:
+                        retry_after = float(encabezado)
+                    except ValueError:
+                        retry_after = 0.0
+                backoff = max(BACKOFF_BASE_SECONDS**attempt, retry_after, REQUEST_DELAY_SECONDS)
+            else:
+                backoff = BACKOFF_BASE_SECONDS ** attempt
+
+            if attempt == MAX_FETCH_RETRIES:
+                print(
+                    f"Fetch failed after {MAX_FETCH_RETRIES} retries "
+                    f"(query={search_query}, start={start}): {error}"
+                )
+                return []
+
+            print(
+                f"Fetch retry {attempt}/{MAX_FETCH_RETRIES} "
+                f"(query={search_query}, start={start}) after error: {error}"
+            )
+            time.sleep(backoff)
         except (requests.RequestException, ET.ParseError) as error:
             if attempt == MAX_FETCH_RETRIES:
                 print(

@@ -18,13 +18,13 @@ class BaseVectorialInicial:
     def construir(
         self,
         documentos: list[dict],
-        campos_texto: tuple[str, ...] = ("titulo", "resumen", "title", "summary"),
+        campos_texto: tuple[str, ...] = ("titulo", "resumen"),
     ) -> None:
         corpus: list[str] = []
         ids_documentos: list[str] = []
 
         for documento in documentos:
-            doc_id = documento.get("id_documento") or documento.get("paper_id", "")
+            doc_id = documento.get("id_documento", "")
             if not doc_id:
                 continue
 
@@ -82,10 +82,17 @@ class BaseVectorialInicial:
             return []
 
         vector_consulta = self.vectorizador.transform([consulta]).astype(np.float32).toarray()[0]
+        norma_consulta = float(np.linalg.norm(vector_consulta))
+        if norma_consulta == 0.0:
+            return []
+
         normas = np.linalg.norm(self.matriz, axis=1) * np.linalg.norm(vector_consulta)
         normas[normas == 0] = 1e-9
 
         similitudes = (self.matriz @ vector_consulta) / normas
+        if np.all(similitudes <= 0.0):
+            return []
+
         indices_top = np.argsort(-similitudes)[:top_k]
         return [
             (self.ids_documentos[indice], float(similitudes[indice]))

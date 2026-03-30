@@ -9,7 +9,7 @@ from modulos.adquisicion_datos.api_arxiv import PoliticasCrawling, RecolectorArx
 def _consulta_a_arxiv(consulta_usuario: str) -> str:
     consulta_limpia = " ".join(consulta_usuario.strip().split())
     if not consulta_limpia:
-        consulta_limpia = "scientific research"
+        consulta_limpia = "investigacion cientifica"
     return f"all:{consulta_limpia}"
 
 
