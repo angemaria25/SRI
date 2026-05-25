@@ -1,11 +1,11 @@
 [
   {
-    "doc_id": "2410.23261v2",
-    "puntaje": -165.78612669557128,
+    "doc_id": "2601.07838v1",
+    "puntaje": -7.501416230194479,
     "documento": {
-      "id_documento": "2410.23261v2",
-      "titulo": "100K or 100 Days Trade-offs when Pre-Training with Academic Resources",
-      "resumen": "Published as a conference paper at COLM 2025 $100K or 100 Days: Trade-offs when Pre-Training with Academic Resources Apoorv Khandelwal, Tian Yun, Nihal V . Nayak, Jack Merullo, Stephen H. Bach, Chen Sun & Ellie Pavlick Department of Computer Science Brown University apoorvkh@brown.edu, ellie_pavlick@brown.edu Abstract Pre-training is notoriously compute-intensive and academic researchers are notoriously under-resourced. It is, therefore, commonly assumed that academics can’t pre-train models. In this paper, we seek to clarify this assumption. We first survey academic researchers to learn about their avail- able compute and then empirically measure the time to replicate models on such resources. We introduce a benchmark to measure the time to pre-train models on given GPUs and also identify ideal settings for maximizing training speed. We run our benchmark on a range of models and academic GPUs, spending 2,000 GPU–hours on our experiments. Our results reveal a brighter picture for academic pre-training: for example, although Pythia-1B was originally trained on 64 GPUs for 3 days, we find it is also possible to replicate this model (with the same hyper-parameters) in 3x fewer GPU– days: i.e. on 4 GPUs in 18 days. We conclude with a cost–benefit analysis to help clarify the trade-offs between price and pre-training time. We believe our benchmark will help academic researchers conduct experiments that require training larger models on more data. We fully release our codebase at:https://github.com/apoorvkh/academic-pretraining. 1 Introduction AI research today is dominated by large pre-trained language and vision models, which are notoriously compute-intensive to produce. Even smaller and older models have large training costs: Pythia-1B required 64 GPUs for 3 days (Biderman et al., 2023) and Roberta required 1,000 GPUs for 1 day (Liu et al., 2019). A ubiquitous complaint among academic labs is that research on new architectures, data diets, and training procedures is pr",
+      "id_documento": "2601.07838v1",
+      "titulo": "A survey Information search time optimization based on RAG Retrieval Augmentation Generation chatbot",
+      "resumen": "PARIPEX - INDIAN JOURNAL F RESEARCH | O April - 202Volume - 14 | Issue - 04 | 5 | PRINT ISSN No. 2250 - 1991 | DOI : 10.36106/paripex ABSTRACT Retrieval-Augmented Generation (RAG) based chatbots are not only useful for information retrieval through question- answering but also for making complex decisions based on injected private data.we present a survey on how much search time can be saved when retrieving complex information within an organization called \"X Systems\"(a stealth mode company) by using a RAG-based chatbot compared to traditional search methods. We compare the information retrieval time using standard search techniques versus the RAG-based chatbot for the same queries. Our results conclude that RAG-based chatbots not only save time in information retrieval but also optimize the search process effectively. This survey was conducted with a sample of 105 employees across departments, average time spending on information retrieval per query was taken as metric. Comparison shows us, there are average 80-95% improvement on search when use RAG based chatbot than using standard search. ORIGINAL RESEARCH PAPER Machine Learning A SURVEY: INFORMATION SEARCH TIME OPTIMIZATION BASED ON RAG(RETRIEVAL AUGMENTATION GENERATION) CHATBOT. KEY WORDS: www.worldwidejournals.com 27 Jinesh Patel Arpit Malhotra Ajay Pande INTRODUCTION Before conducting this survey, previous studies indicated productivity improvements in the healthcare sector through [1]. the use of chatbots However, the method faced challenges due to the complexity of data collection. Modern chatbots are no longer limited to text-based interactions; they have evolved into multimodal systems capable of processing text, [2]. images, and videos With the rapid advancements in generative AI (GenAI), chatbots not only enhance productivity but also serve as innovative tools for information mining. In this survey, we measured task completion time by comparing a traditional information retrieval system, such as a searc",
       "autores": [],
       "categorias": [
         "investigacion_cientifica",
@@ -14,7 +14,178 @@
       "publicado": "",
       "actualizado": "",
       "url_pdf": "",
-      "ruta_pdf_local": "E:\\Escuela\\SRI\\PaperScan\\local\\local_papers\\100K or 100 Days Trade-offs when Pre-Training with Academic Resources 2410.23261v2.pdf",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A survey Information search time optimization based on RAG Retrieval Augmentation Generation chatbot 2601.07838v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2511.05684v1",
+    "puntaje": -9.512590137078249,
+    "documento": {
+      "id_documento": "2511.05684v1",
+      "titulo": "A Representation Sharpening Framework for Zero Shot Dense Retrieval",
+      "resumen": "A Representation Sharpening Framework for Zero Shot Dense Retrieval Dhananjay Ashok1* Suraj Nair2 Mutasem Al-Darabsah2 Choon Hui Teo2 Tarun Agarwal2 Jonathan May2 1Information Sciences Institute, University of Southern California 2Amazon ashokd@isi.edu {srjnair, mutasema, choonhui, tagar, jnatmay}@amazon.com Abstract Zero-shot dense retrieval is a challenging set- ting where a document corpus is provided with- out relevant queries, necessitating a reliance on pretrained dense retrievers (DRs). How- ever, since these DRs are not trained on the target corpus, they struggle to represent seman- tic differences between similar documents. To address this failing, we introduce a training- free representation sharpening framework that augments a document’s representation with information that helps differentiate it from sim- ilar documents in the corpus. On over twenty datasets spanning multiple languages, the rep- resentation sharpening framework proves con- sistently superior to traditional retrieval, set- ting a new state-of-the-art on the BRIGHT benchmark. We show that representation sharp- ening is compatible with prior approaches to zero-shot dense retrieval and consistently im- proves their performance. Finally, we address the performance-cost tradeoff presented by our framework and devise an indexing-time approx- imation that preserves the majority of our per- formance gains over traditional retrieval, yet suffers no additional inference-time cost. 1 Introduction Dense retrieval systems represent queries and doc- uments in a semantic space, using the similarity of their embeddings as an estimate of a document’s relevance to a query (Yih et al., 2011). This ap- proach has been shown to work well in data-rich do- mains like Question Answering (Karpukhin et al., 2020) and Web Search (Mao et al., 2022). However, in more realistic scenarios, we do not have access to relevant queries for the documents in our cor- pus (Dai et al., 2023) and must perform zero-shot retrieval",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A Representation Sharpening Framework for Zero Shot Dense Retrieval 2511.05684v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2511.08476v1",
+    "puntaje": -9.563681321452282,
+    "documento": {
+      "id_documento": "2511.08476v1",
+      "titulo": "Advancing Scientific Knowledge Retrieval and Reuse with a Novel Digital Library for Machine-Readable Knowledge",
+      "resumen": "Advancing Scientific Knowledge Retrieval and Reuse with a Novel Digital Library for Machine-Readable Knowledge Hadi Ghaemi1, Lauren Snyder1, Markus Stocker1 1TIB - Leibniz Information Centre for Science and Technology Hadi.Ghaemi@tib.eu, Lauren.Snyder@tib.eu, Markus.Stocker@tib.eu Abstract Digital libraries for research, such as the ACM Digital Library or Semantic Scholar, do not enable the machine-supported, efficient reuse of scientific knowledge (e.g., in synthesis research). This is because these libraries are based on document-centric models with narrative text knowledge expressions that require manual or semi-automated knowledge extraction, structuring, and organization. We present ORKG reborn, an emerging digital library that supports finding, accessing, and reusing accurate, fine-grained, and reproducible machine- readable expressions of scientific knowledge that relate scientific statements and their supporting evidence in terms of data and code. The rich expressions of scientific knowledge are published as reborn (born-reusable) articles and provide novel possibilities for scientific knowledge retrieval, for instance by statistical methods, software packages, variables, or data matching specific constraints. We describe the proposed system and demon- strate its practical viability and potential for information retrieval in contrast to state-of-the-art digital libraries and document-centric scholarly communication using several published articles in research fields ranging from computer science to soil science. Our work underscores the enormous potential of scientific knowledge databases and a viable approach to their construction. Comments:Accepted for publication at SIGIR 2025. This is the authors’ accepted version (preprint) prior to ACM formatting and copyediting. The official version of record is available in the ACM Digital Library at: https://doi.org/10.1145/3726302.3730134 1 Introduction Research is an iterative process in which researchers build on",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\Advancing Scientific Knowledge Retrieval and Reuse with a Novel Digital Library for Machine-Readable Knowledge 2511.08476v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2511.07577v1",
+    "puntaje": -9.785128333298935,
+    "documento": {
+      "id_documento": "2511.07577v1",
+      "titulo": "A Decentralized Retrieval Augmented Generation System with Source Reliabilities Secured on Blockchain",
+      "resumen": "A DECENTRALIZEDRETRIEVALAUGMENTEDGENERATIONSYSTEM WITH SOURCERELIABILITIESSECURED ONBLOCKCHAIN Yining Lu * 1 Wenyi Tang* 1 Max Johnson 1 Taeho Jung1 Meng Jiang 1 ABSTRACT Existing retrieval-augmented generation (RAG) systems typically use a centralized architecture, causing a high cost of data collection, integration, and management, as well as privacy concerns. There is a great need for a decentralized RAG system that enables foundation models to utilize information directly from data owners who maintain full control over their sources. However, decentralization brings a challenge: the numerous independent data sources vary significantly in reliability, which can diminish retrieval accuracy and response quality. To address this, our decentralized RAG system has a novel reliability scoring mechanism that dynamically evaluates each source based on the quality of responses it contributes to generate and prioritizes high-quality sources during retrieval. To ensure transparency and trust, the scoring process is securely managed through blockchain-based smart contracts, creating verifiable and tamper-proof reliability records without relying on a central authority. We evaluate our decentralized system with two Llama models (3B and 8B) in two simulated environments where six data sources have different levels of reliability. Our system achieves a +10.7% performance improvement over its centralized counterpart in the real world-like unreliable data environments. Notably, it approaches the upper-bound performance of centralized systems under ideally reliable data environments. The decentralized infrastructure enables secure and trustworthy scoring management, achieving approximately 56% marginal cost savings through batched update operations. Our code and system are open-sourced at github.com/yining610/Reliable-dRAG. 1 INTRODUCTION Retrieval Augmented Generation (RAG) (Lewis et al., 2020) has been a popular technique for enhancing large language models (LLMs) by providing t",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A Decentralized Retrieval Augmented Generation System with Source Reliabilities Secured on Blockchain 2511.07577v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2511.07573v2",
+    "puntaje": -10.705095036610519,
+    "documento": {
+      "id_documento": "2511.07573v2",
+      "titulo": "A Hybrid Multimodal Deep Learning Framework for Intelligent Fashion Recommendation",
+      "resumen": "1 A Hybrid Multimodal Deep Learning Framework for Intelligent Fashion Recommendation Kamand Kalashi, Babak Teimourpour* Department of Information Technology, Faculty of Industrial and Systems Engineering, Tarbiat Modares University (TMU), Tehran, Iran { kalashi.kamand, b.teimourpour}@modares.ac.ir Abstract— The rapid expansion of online fashion platforms has created an increasing demand for intelligent recommender systems capable of understanding both visual and textual cues. This paper proposes a hybrid multimodal deep learning framework for fashion recommendation that jointly addresses two key tasks: outfit compatibility prediction and complementary item retrieval. The mo del leverages the visual and textual encoders of the CLIP architecture to obtain joint latent representations of fashion items, which are then integrated into a unified feature vector and processed by a transformer encoder. For compatibility prediction, an \"outfit tok en\" is introduced to model the holistic relationships among items, achieving an AUC of 0.95 on th e Polyvore dataset. For complementary item retrieval, a \"target item token\" representing the desired item description is used to retrieve compatible items, reaching an accuracy of 69.24% under the Fill -in-the-Blank (FITB) metric. The proposed approach demo nstrates strong performance across both tasks, highlighting the effectiveness of multimodal learning for fashion recommendation. Keywords— Fashion Recommendation; Multimodal Learning; Deep Learning; CLIP Model; Transformer Encoder; I. INTRODUCTION The rapid expansion of online fashion retail platforms has led to an unprecedented diversity of products, making it increasingly challenging for users to identify visually coherent and stylistically compatible outfits. This complexity has underscored the growing importance of intelligent fashion recommender systems capable of understanding both the aesthetic and contextual relationship s among fashion items (Han et al., 2017; Lin et al., 20",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A Hybrid Multimodal Deep Learning Framework for Intelligent Fashion Recommendation 2511.07573v2.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2604.00835v1",
+    "puntaje": -11.350397188141919,
+    "documento": {
+      "id_documento": "2604.00835v1",
+      "titulo": "Agentic Tool Use in Large Language Models",
+      "resumen": "Agentic Tool Use in Large Language Models HU JINCHAO,School of Computer Science and Technology, Harbin Institute of Technology, Shenzhen, China MEIZHI ZHONG,TikTok Inc, Beijing, China KEHAI CHEN,School of Computer Science and Technology, Harbin Institute of Technology, Shenzhen, China XUEFENG BAI,School of Computer Science and Technology, Harbin Institute of Technology, Shenzhen, China MIN ZHANG,School of Computer Science and Technology, Harbin Institute of Technology, Shenzhen, China Large language models are increasingly being deployed as autonomous agents yet their real world effectiveness depends on reliable tools for information retrieval, computation and external action. Existing studies remain fragmented across tasks, tool types, and training settings, lacking a unified view of how tool-use methods differ and evolve. This paper organizes the literature into three paradigms: prompting as plug-and-play, supervised tool learning and reward-driven tool policy learning, analyzes their methods, strengths and failure modes, reviews the evaluation landscape and highlights key challenges, aiming to address this fragmentation and provide a more structured evolutionary view of agentic tool use. CCS Concepts:•Computing methodologies→Natural language generation. Additional Key Words and Phrases: Large language models,Agentic tool use,Prompt engineering,Instruction tuning,Reinforcement learning 1 Introduction Artificial intelligence (AI) has evolved from early rule-based expert systems to modern data-driven machine learning [12]. The Transformer architecture [139] catalyzed this transition and enabled the rise of large language models (LLMs). Foundational models such as BERT [31] and T5 [115] established strong paradigms for natural language understanding and generation. Subsequent models, including Llama 2 [137], Qwen [114], Mixtral [55], and GPT-4 [97], have demon- strated unprecedented capability. Pretrained on massive corpora [36], these models exhibit emergent strengt",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\Agentic Tool Use in Large Language Models 2604.00835v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2604.01413v2",
+    "puntaje": -11.481178976885257,
+    "documento": {
+      "id_documento": "2604.01413v2",
+      "titulo": "Adaptive Stopping for Multi-Turn LLM Reasoning",
+      "resumen": "Preprint. Under review. Adaptive Stopping for Multi-T urn LLM Reasoning Xiaofan Zhou Department of Computer Science University of Illinois Chicago Chicago, IL 60607, USA xzhou77@uic.edu Huy Nguyen Data science Augustana College Rock Island, IL 61201, USA huynguyen23@augustana.edu Bo Yu Department of Civil and Environmental Engineering University of Utah Salt Lake City, UT 84112, USA bo.yu@utah.edu Chenxi Liu Department of Civil and Environmental Engineering University of Utah Salt Lake City, UT 84112, USA chenxi.liu@utah.edu Lu Cheng Department of Computer Science University of Illinois Chicago Chicago, IL 60607, USA lucheng@uic.edu Abstract Large Language Models (LLMs) increasingly rely on multi-turn reasoning and interaction, such as adaptive retrieval-augmented generation (RAG) and ReAct-style agents, to answer difficult questions. These methods im- prove accuracy by iteratively retrieving information, reasoning, or acting, but introduce a key challenge:When should the model stop?Existing approaches rely on heuristic stopping rules or fixed turn budgets and pro- vide no formal guarantees that the final prediction still contains the correct answer. This limitation is particularly problematic in high-stakes domains such as finance and healthcare, where unnecessary turns increase cost and latency, while stopping too early risks incorrect decisions. Conformal pre- diction (CP) provides formal coverage guarantees, but existing LLM-CP methods only apply to a single model output and cannot handle multi- turn pipelines with adaptive stopping. To address this gap, we propose Multi-Turn Language Models withConformalPrediction (MiCP), the first CP framework for multi-turn reasoning. MiCP allocates different error budgets across turns, enabling the model to stop early while maintaining an overall coverage guarantee. We demonstrate MiCP on adaptive RAG and ReAct, where it achieves the target coverage on both single-hop and multi-hop question answering benchmarks while reducin",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\Adaptive Stopping for Multi-Turn LLM Reasoning 2604.01413v2.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2605.09483v1",
+    "puntaje": -11.952653291713924,
+    "documento": {
+      "id_documento": "2605.09483v1",
+      "titulo": "A Cognitively Grounded Bayesian Framework for Misinformation Susceptibility",
+      "resumen": "A Cognitively Grounded Bayesian Framework for Misinformation Susceptibility Pranava Madhyastha1,2 1Dept. of Computer Science, City, University of London 2The Alan Turing Institute pranava.madhyastha@city.ac.uk Abstract In this (work in progress) paper, we present Bounded Pragmatic Listener (or BPL), a cognitively grounded Bayesian framework for modelling susceptibility to information disorder.BPLextends Rational Speech Act theory with three cognitively motivated bounds derived from the bounded rationality literature with a) a recursion depth bound (that emphasises working memory limits);b) a prior compression parameter (which is oriented at capturing information bottleneck); and c) an availability sample size (that operationalises importance sampling with saliency-weighted proposals). This allows us to test predictions about misinformation susceptibility, annotator disagreement, and the differential vulnerability to mis-, dis-, and mal-information as defined in the Information Disorder framework. We validate BPL on the LIAR and MultiFC benchmarks showcasing competitive veracity classification and experimental support for the depth-mismatch paradox. Keywords:Information Disorder, Pragmatics, Bounded Rationality 1. Introduction Every day, millions of people encounter claims on- line that turn out to be false. Some of these, for e.g., afabricatedstatisticaboutunemployment, are shared in good faith by people who simply got it wrong. Others, like a fabricated quote attributed to a politician, are crafted with deliberate intent to deceive. And others still, such as the insinuation that “everyone in government knows the data was manipulated but won’t say so publicly”, do not even requireafalseclaimwherethemanipulationindeed lies in the framing rather than the facts (Wardle and Derakhshan, 2017). Despite their obvious differences, most current NLP research treats all three as the same type of problem where given a claim, the model is sup- posed to predict whether it is true",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A Cognitively Grounded Bayesian Framework for Misinformation Susceptibility 2605.09483v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2504.15690v1",
+    "puntaje": -12.18420057010569,
+    "documento": {
+      "id_documento": "2504.15690v1",
+      "titulo": "A Data Literacy Competence Model for Higher Education and Research",
+      "resumen": "A DATA LITERACY COMPETENCE MODEL FOR HIGHER EDUCATION AND RESEARCH TECHNICAL REPORT Martina M. Echtenbruck Faculty of Information and communication sciences Institute for Information Science TH Köln, Germany martina.echtenbruck@th-koeln.de Simone Fühles-Ubach Faculty of Information and communication sciences Institute for Information Science TH Köln, Germany simone.fuehles-ubach@th-koeln.de Boris Naujoks Faculty of Computer Science and Engineering Institute for Data Science, Engineering, and Analytics TH Köln, Germany boris.naujoks@th-koeln.de Elisabeth Kaliva Faculty of Cultural sciences Köln International School of Design (KISD) TH Köln, Germany elisabeth.kaliva@th-koeln.de April 23, 2025 ABSTRACT In an increasingly data-driven world, the ability to understand, interpret, and use data - data literacy - is emerging as a critical competence across all academic disciplines. The Data Literacy Initiative (DaLI) at TH Köln addresses this need by developing a comprehensive competence model for promoting data literacy in higher education. Based on interdisciplinary collaboration and empirical research, the DaLI model defines seven overarching competence areas: \"Establish Data Culture\", \"Provide Data\", \"Manage Data\", \"Analyze Data\", \"Evaluate Data\", \"Interpret Data\", and \"Publish Data\". Each area is further detailed by specific competence dimensions and progression levels, providing a structured framework for curriculum design, teaching, and assessment. Intended for use across disciplines, the model supports the strategic integration of data literacy into university programs. By providing a common language and orientation for educators and institutions, the DaLI model contributes to the broader goal of preparing students to navigate and shape a data-informed society. Keywords Data Literacy · Competence Model · Competencies 1 Introduction As our world becomes increasingly digital, more and more processes and activities, essential aspects of everyday life, research, and work",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\A Data Literacy Competence Model for Higher Education and Research 2504.15690v1.pdf",
+      "fuente": "local_pdf"
+    }
+  },
+  {
+    "doc_id": "2504.21475v1",
+    "puntaje": -12.353768386433735,
+    "documento": {
+      "id_documento": "2504.21475v1",
+      "titulo": "Advancing Arabic Reverse Dictionary Systems A Transformer-Based Approach with Dataset Construction Guidelines",
+      "resumen": "Graphical Abstract AdvancingArabicReverseDictionarySystems:ATransformer-BasedApproachwithDataset Construction Guidelines Serry Sibaee,Samar Ahmed,Abdullah Al Harbi,Omer Nacar,Adel Ammar,Yasser Habashi,Wadii Boulila arXiv:2504.21475v1 [cs.CL] 30 Apr 2025\nHighlights AdvancingArabicReverseDictionarySystems:ATransformer-BasedApproachwithDataset Construction Guidelines Serry Sibaee,Samar Ahmed,Abdullah Al Harbi,Omer Nacar,Adel Ammar,Yasser Habashi,Wadii Boulila • Weproposeasemi-encoderneuralnetworkwithgeometricallydecreasinghiddenlayers,achievingstate-of-the- art performance on Arabic reverse dictionary tasks through efficient semantic representation. • WeestablishformalqualitystandardsforArabiclexicographicdefinitions,providingasystematicframeworkto enhance dataset construction for reverse dictionary applications. • We present a formal abstraction of the reverse dictionary task, offering a rigorous theoretical framework for embedding-based word retrieval systems and facilitating reproducibility and future research. • We develop RDTL, a modular and extensible Python library with configurable training pipelines for reverse dictionary tasks, released as open-source to support the research community.1 1https://github.com/serrysibaee/reverse_dictionary/tree/main",
+      "autores": [],
+      "categorias": [
+        "investigacion_cientifica",
+        "academico"
+      ],
+      "publicado": "",
+      "actualizado": "",
+      "url_pdf": "",
+      "ruta_pdf_local": "D:\\Documentos\\3RO\\2DO Semestre\\SRI\\Proyecto\\SRI\\local\\local_papers\\Advancing Arabic Reverse Dictionary Systems A Transformer-Based Approach with Dataset Construction Guidelines 2504.21475v1.pdf",
       "fuente": "local_pdf"
     }
   }

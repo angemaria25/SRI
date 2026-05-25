@@ -2,3 +2,4 @@ numpy==2.2.4
 requests==2.32.3
 scikit-learn==1.6.1
 pypdf==5.4.0
+beautifulsoup4==4.12.3

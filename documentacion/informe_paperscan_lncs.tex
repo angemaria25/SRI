@@ -31,12 +31,13 @@ fuentes de datos basadas en publicaciones de arXiv.
 La arquitectura del proyecto se organiza en modulos:
 \begin{itemize}
 \item Adquisicion de datos.
+\item Crawler y scraping web.
 \item Indexacion.
 \item Recuperacion.
 \item Base vectorial.
 \item RAG (pendiente).
 \item Posicionamiento (pendiente).
-\item Busqueda web (pendiente).
+\item Busqueda web (respaldo arXiv).
 \item Modulos opcionales: expansion y retroalimentacion, multimodal,
 recomendacion y evaluacion (pendientes).
 \end{itemize}
@@ -49,6 +50,13 @@ campos estructurados para indexacion.
 
 Adicionalmente, se implementa un cliente de arXiv con politicas de crawling
 (demora entre solicitudes, tamano de lote y reintentos) para respaldo web.
+
+\subsection{Crawler y scraping web}
+Se implementa un crawler web basico con profundidad limitada y respeto a
+\texttt{robots.txt}, orientado al dominio de investigacion cientifica y academica.
+El crawler descarga HTML, extrae texto limpio, y almacena evidencias en
+\texttt{datos/brutos/crawl\_web} junto con un archivo \texttt{registros.jsonl}
+para trazabilidad de URLs, profundidad y fecha de descarga.
 
 \subsection{Indexacion}
 Se realiza preprocesamiento de texto y construccion de indice invertido,
@@ -65,6 +73,14 @@ Se construyen representaciones TF-IDF para almacenamiento vectorial inicial.
 El sistema persiste resultados y evidencia de ejecucion en \texttt{datos}:
 corpus bruto, indice invertido, vectores, estadisticas del corpus local y
 resultados de recuperacion.
+
+\subsection{Estadisticas del corpus local}
+Para la evidencia de Corte 1, el corpus local generado reporta:
+\begin{itemize}
+\item Cantidad de documentos: 50.
+\item Promedio de palabras por resumen: 267.44.
+\item Categorias mas frecuentes: investigacion\_cientifica (50), academico (50).
+\end{itemize}
 
 \section{Flujo Operacional}
 \begin{enumerate}

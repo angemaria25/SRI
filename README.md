@@ -62,6 +62,12 @@ Descarga local de documentos PDF:
 python local/scrapping.py
 ```
 
+Crawler web basico (Corte 1):
+
+```bash
+python -m modulos.adquisicion_datos.crawler_web --depth 2 --max-pages 200
+```
+
 ## Ejecucion con Docker
 Construccion de imagen:
 
@@ -105,6 +111,9 @@ docker compose up descargador_local
 
 ## Evidencias generadas por el sistema
 - `datos/brutos/corpus_local.jsonl`
+- `datos/brutos/crawl_web/registros.jsonl`
+- `datos/brutos/crawl_web/html/`
+- `datos/brutos/crawl_web/texto/`
 - `datos/indices/indice_invertido.json`
 - `datos/base_vectorial/vectores.npy`
 - `datos/procesados/estadisticas_corpus_local.json`
