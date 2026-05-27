@@ -3,3 +3,7 @@ requests==2.32.3
 scikit-learn==1.6.1
 pypdf==5.4.0
 beautifulsoup4==4.12.3
+scipy==1.14.1
+transformers==4.51.3
+sentencepiece==0.2.0
+torch==2.7.0

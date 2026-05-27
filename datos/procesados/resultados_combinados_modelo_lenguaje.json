@@ -1,0 +1,156 @@
+[
+  {
+    "doc_id": "2605.26040v1",
+    "puntaje": -18.383681559865085,
+    "documento": {
+      "id_documento": "2605.26040v1",
+      "titulo": "L2IR: Revealing Latent Intent in Graph Fraud Detection",
+      "resumen": "Graph fraud detection has long depended on Graph Neural Networks (GNNs) to propagate and aggregate information across relational data. A critical obstacle in practice, however, is that fraudsters frequently disguise themselves by forging numerous connections with benign users, causing fraud signals to be progressively diluted during neighborhood aggregation and undermining detection reliability. While recent efforts have used Large Language Models (LLMs) to provide rich semantic cues for fraud detection, the underlying intent behind suspicious connections remains insufficiently explored. Compounding this issue, the scarcity of annotated fraud samples makes it difficult to train detectors that remain robust under heavy camouflage. To address these gaps, we propose L2IR, an LLM-driven Latent Intent Revealing framework for graph fraud detection. By uncovering latent intent from both user behaviors and suspicious connections, L2IR extracts intent-aware representations from raw behavioral traces and reasons about the true purpose behind individual connections, effectively distinguishing supportive links from misleading ones. It further incorporates adaptive self-training to enhance robustness under limited supervision. Evaluations on two real-world datasets characterized by pervasive camouflage demonstrate that L2IR surpasses strong baselines and can function as a plug-in enhancement for a range of GNN-based detectors, improving AUPRC by up to 8.27%.",
+      "autores": [
+        "Jinsheng Guo",
+        "Zhenhao Weng",
+        "Yibo Liu",
+        "Yan Qiao",
+        "Meng Li"
+      ],
+      "categorias": [
+        "cs.AI"
+      ],
+      "publicado": "2026-05-25T17:06:13Z",
+      "actualizado": "2026-05-25T17:06:13Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26040v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26115v1",
+    "puntaje": -19.255629353835268,
+    "documento": {
+      "id_documento": "2605.26115v1",
+      "titulo": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
+      "resumen": "Sparse-view 3D reconstruction is increasingly addressed with feed-forward splatting networks that predict explicit primitives directly from images. Yet most existing methods remain centered on Gaussian primitives and expose surfaces only indirectly: extracting a usable mesh for downstream simulation, physics reasoning, or embodied interaction still requires expensive post-hoc steps that break the feed-forward promise. This limitation is especially pronounced in pose-free settings, where scene structure and camera parameters must be estimated jointly from sparse observations. We present TriSplat, a feed-forward reconstruction network that represents scenes with oriented triangle primitives and directly exports simulation-ready mesh scenes from a single forward pass. Given input images, the network predicts local 3D point maps, triangle attributes, camera poses, and optional intrinsics. Rather than regressing triangle orientation as an unconstrained latent variable, our approach constructs geometry normals from the predicted point maps, refines them with an image-conditioned normal head, and converts them into stable local frames for triangle parameterization. A mono-normal bootstrap schedule further stabilizes early training, while opacity and blur scheduling progressively sharpens the learned surface representation for direct mesh extraction. Experiments on RealEstate10K and DL3DV show that this representation produces more geometry-faithful reconstructions than Gaussian feed-forward baselines while maintaining competitive novel-view rendering quality. Because the rendering primitives are themselves surface triangles, the output can be directly ingested by physics engines, collision detectors, and standard rendering pipelines without any conversion, making it a practical simulation-ready solution for feed-forward 3D scene reconstruction.",
+      "autores": [
+        "Weijie Wang",
+        "Zimu Li",
+        "Jinchuan Shi",
+        "Zeyu Zhang",
+        "Botao Ye",
+        "Marc Pollefeys",
+        "Donny Y. Chen",
+        "Bohan Zhuang"
+      ],
+      "categorias": [
+        "cs.CV"
+      ],
+      "publicado": "2026-05-25T17:59:53Z",
+      "actualizado": "2026-05-25T17:59:53Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26115v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26042v1",
+    "puntaje": -19.262078077385333,
+    "documento": {
+      "id_documento": "2605.26042v1",
+      "titulo": "Alt-CC-PINN: An Alternating Optimization Framework with Implicit Neural Representation for Microwave Inverse Scattering Imaging",
+      "resumen": "Microwave inverse scattering imaging (MISI) is a crucial computational technique in microwave nondestructive evaluation and near-field microwave sensing systems. However, quantitative reconstruction of high-contrast targets remains a formidable challenge due to severe multiple scattering effects and the inherent ill-posedness of electromagnetic inverse problems. To overcome this fundamental bottleneck in computational microwave imaging, this paper proposes an alternating optimization framework based on cross-correlated physics-informed neural network (Alt-CC-PINN). This architecture deeply decouples the evolution of the microwave physical field from the neural-network-based dielectric parameter inference, replacing traditional joint optimization with a hybrid alternating engine. Specifically, the method employs an analytical Polak-Ribière conjugate gradient (PR-CG) algorithm driven by a cross-correlated loss to optimally update the contrast sources, and deploys batched zero-padded 2D-FFT to ensure high computational efficiency. Subsequently, a deep learning optimizer is utilized to update the continuous neural representation. Extensive validations based on simulated and measured data demonstrate that Alt-CC-PINN effectively overcomes the local minima problem in high-contrast and low-signal-to-noise-ratio (SNR) environments. It exhibits superior reconstruction fidelity and robustness under the frequency-hopping probing strategy, providing a powerful and reliable computational electromagnetic solver for practical microwave imaging systems.",
+      "autores": [
+        "Shilong Sun"
+      ],
+      "categorias": [
+        "eess.SP"
+      ],
+      "publicado": "2026-05-25T17:08:09Z",
+      "actualizado": "2026-05-25T17:08:09Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26042v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26059v1",
+    "puntaje": -19.31037965745356,
+    "documento": {
+      "id_documento": "2605.26059v1",
+      "titulo": "Accelerating Bayesian inverse design in computational fluid dynamics using neural operators",
+      "resumen": "Bayesian inverse design provides a principled framework for inferring aerodynamic geometries from sparse flow observations while quantifying uncertainty. However, its practical use in computational fluid dynamics (CFD) is severely limited by the cost of repeated high-fidelity simulations required for gradient-based Markov chain Monte Carlo (MCMC) sampling. While surrogate models are commonly proposed to reduce this cost, their effect on posterior geometry and uncertainty, especially for shock-dominated flows, remains poorly understood. In this work, we demonstrate that neural operator surrogates can be embedded directly within the MCMC inference loop while preserving posterior structure. Using a fully Bayesian inverse formulation of quasi-one-dimensional nozzle flow, we demonstrate that geometry parameterization plays a decisive role in identifiability and posterior conditioning, with cubic B-splines yielding stable and physically meaningful uncertainty estimates. Building on this formulation, a Deep Operator Network trained on CFD-generated data is substituted for the CFD solver within a No-U-Turn Sampler, while keeping the likelihood model, priors, and sampling configuration unchanged. Across sparse to fully observed regimes, surrogate-based inference reproduces the posterior geometry and uncertainty trends of the CFD reference. As a result of surrogate integration, total inference time is reduced to under one second, corresponding to a speedup exceeding three orders of magnitude. In addition, a direct inverse neural operator is examined as a deterministic alternative for inverse design, enabling single-shot geometry reconstruction without posterior sampling. These results demonstrate that neural operator-accelerated Bayesian inference enables practical, uncertainty-aware inverse design workflows for aerodynamic applications.",
+      "autores": [
+        "Bipin Tiwari",
+        "Omer San"
+      ],
+      "categorias": [
+        "physics.flu-dyn",
+        "cs.LG"
+      ],
+      "publicado": "2026-05-25T17:18:18Z",
+      "actualizado": "2026-05-25T17:18:18Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26059v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26037v1",
+    "puntaje": -19.494210334390434,
+    "documento": {
+      "id_documento": "2605.26037v1",
+      "titulo": "Peak-Then-Collapse and the Four Interface Channels of Knowledge-Graph Tool Use",
+      "resumen": "We test the standard RLVR tool-use recipe -- GRPO on Qwen2.5-7B-Instruct -- on a deliberately minimal knowledge-graph tool API: four Freebase navigation verbs over Complex WebQuestions. Under a self-verifiable retrieval reward, the policy's tool-grounded answer rate climbs from $3.8\\%$ to $9.6\\%$ over 250 steps, then collapses to $0\\%$ within a single 50-step window -- a \\emph{peak-then-collapse} pattern replicated across four seeds. Across seven reward designs, we find four recurring failure modes: adding denser or more targeted proxy rewards shifts the failure mode rather than eliminating it. We argue that a key difference from Python interpreters, web search, and JSON APIs is interface feedback: their failures often leak natural-language signal the model saw in pretraining. A Python traceback names the failing line; an empty Freebase result \\texttt{[]} does not. Stripping away that surface exposes a degradation regime that same-family reward redesigns do not fix. A direct oracle ablation rules out relation selection: injecting gold relations at every retrieval call lifts exact-match accuracy by only $+0.20$~pp, and $95.4\\%$ of retrieval-dependent errors are retrieval-composition failures rather than answer-extraction failures. As a mitigation, one-iteration self-distillation reaches $40.0\\%$ EM at 7B and is capacity-invariant: doubling capacity to 14B improves EM by only $0.25$~pp, and initialization barely matters -- the ceiling appears interface-bound within the 7B--14B range tested.",
+      "autores": [
+        "Tianda Sun",
+        "Dimitar Kazakov"
+      ],
+      "categorias": [
+        "cs.CL"
+      ],
+      "publicado": "2026-05-25T17:05:35Z",
+      "actualizado": "2026-05-25T17:05:35Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26037v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26099v1",
+    "puntaje": -19.55053695616676,
+    "documento": {
+      "id_documento": "2605.26099v1",
+      "titulo": "Language Models Need Sleep",
+      "resumen": "Transformer-based large language models are increasingly used for long-horizon tasks; however, their attention mechanism scales poorly with context length. To handle this, we study a sleep-like consolidation mechanism in which a model periodically converts recent context into persistent fast weights before clearing its key-value cache. During sleep, the model performs $N$ offline recurrent passes over the accumulated context and updates the fast weights in its state-space model (SSM) blocks through a learned local rule. During inference, this shifts extra computation to sleep while preserving the latency of wake-time prediction. We test our method on controlled synthetic tasks, including cellular automata and multi-hop graph retrieval, as well as a realistic math reasoning task, on which a regular transformer as well as SSM-attention hybrid models fail. We then show that increasing sleep duration $N$ for our models improves performance, with the largest gains on examples that require deeper reasoning.",
+      "autores": [
+        "Sangyun Lee",
+        "Sean McLeish",
+        "Tom Goldstein",
+        "Giulia Fanti"
+      ],
+      "categorias": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "publicado": "2026-05-25T17:55:39Z",
+      "actualizado": "2026-05-25T17:55:39Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26099v1",
+      "fuente": "web_arxiv"
+    }
+  },
+  {
+    "doc_id": "2605.26081v1",
+    "puntaje": -19.5561079884084,
+    "documento": {
+      "id_documento": "2605.26081v1",
+      "titulo": "VeriTrace: Evolving Mental Models for Deep Research Agents",
+      "resumen": "Deep research agents face vast, interdependent, and pervasively uncertain information. Existing systems explore what evolving intermediate representations should look like, but leave their evolution to the LLM's implicit reasoning. Without explicit regulation, the intermediate layer is easily contaminated by mixed-quality information and propagates errors along its dependencies, so model scale often ends up substituting for absent regulation. We argue that an agent's mental model should instead evolve through explicit feedback that continuously aligns task understanding with reality, and identify three regulatory loops: interpretive update, deviation feedback, and schema revision. We realise this in VeriTrace, a cognitive-graph framework that explicitly implements the three loops. Using matched Qwen3.5-27B backbones, VeriTrace improves over the strongest matched baseline by 4.22 pp on DeepResearch Bench (DRB) Insight (1.49 pp Overall) and by 5.9 pp Overall win rate on DeepConsult. With Config-DeepSeek, it achieves the strongest reproducible open-source result on DRB.",
+      "autores": [
+        "Haolang Zhao",
+        "Yunbo Long",
+        "Lukas Beckenbauer",
+        "Alexandra Brintrup"
+      ],
+      "categorias": [
+        "cs.AI"
+      ],
+      "publicado": "2026-05-25T17:46:57Z",
+      "actualizado": "2026-05-25T17:46:57Z",
+      "url_pdf": "https://arxiv.org/pdf/2605.26081v1",
+      "fuente": "web_arxiv"
+    }
+  }
+]

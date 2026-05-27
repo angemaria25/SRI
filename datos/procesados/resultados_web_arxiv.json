@@ -1,55 +1,181 @@
 [
   {
-    "id_documento": "2603.22282v1",
-    "titulo": "UniMotion: A Unified Framework for Motion-Text-Vision Understanding and Generation",
-    "resumen": "We present UniMotion, to our knowledge the first unified framework for simultaneous understanding and generation of human motion, natural language, and RGB images within a single architecture. Existing unified models handle only restricted modality subsets (e.g., Motion-Text or static Pose-Image) and predominantly rely on discrete tokenization, which introduces quantization errors and disrupts temporal continuity. UniMotion overcomes both limitations through a core principle: treating motion as a first-class continuous modality on equal footing with RGB. A novel Cross-Modal Aligned Motion VAE (CMA-VAE) and symmetric dual-path embedders construct parallel continuous pathways for Motion and RGB within a shared LLM backbone. To inject visual-semantic priors into motion representations without requiring images at inference, we propose Dual-Posterior KL Alignment (DPA), which distills a vision-fused encoder's richer posterior into the motion-only encoder. To address the cold-start problem -- where text supervision alone is too sparse to calibrate the newly introduced motion pathway -- we further propose Latent Reconstruction Alignment (LRA), a self-supervised pre-training strategy that uses dense motion latents as unambiguous conditions to co-calibrate the embedder, backbone, and flow head, establishing a stable motion-aware foundation for all downstream tasks. UniMotion achieves state-of-the-art performance across seven tasks spanning any-to-any understanding, generation, and editing among the three modalities, with especially strong advantages on cross-modal compositional tasks.",
+    "id_documento": "2605.26115v1",
+    "titulo": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
+    "resumen": "Sparse-view 3D reconstruction is increasingly addressed with feed-forward splatting networks that predict explicit primitives directly from images. Yet most existing methods remain centered on Gaussian primitives and expose surfaces only indirectly: extracting a usable mesh for downstream simulation, physics reasoning, or embodied interaction still requires expensive post-hoc steps that break the feed-forward promise. This limitation is especially pronounced in pose-free settings, where scene structure and camera parameters must be estimated jointly from sparse observations. We present TriSplat, a feed-forward reconstruction network that represents scenes with oriented triangle primitives and directly exports simulation-ready mesh scenes from a single forward pass. Given input images, the network predicts local 3D point maps, triangle attributes, camera poses, and optional intrinsics. Rather than regressing triangle orientation as an unconstrained latent variable, our approach constructs geometry normals from the predicted point maps, refines them with an image-conditioned normal head, and converts them into stable local frames for triangle parameterization. A mono-normal bootstrap schedule further stabilizes early training, while opacity and blur scheduling progressively sharpens the learned surface representation for direct mesh extraction. Experiments on RealEstate10K and DL3DV show that this representation produces more geometry-faithful reconstructions than Gaussian feed-forward baselines while maintaining competitive novel-view rendering quality. Because the rendering primitives are themselves surface triangles, the output can be directly ingested by physics engines, collision detectors, and standard rendering pipelines without any conversion, making it a practical simulation-ready solution for feed-forward 3D scene reconstruction.",
     "autores": [
-      "Ziyi Wang",
-      "Xinshun Wang",
-      "Shuang Chen",
-      "Yang Cong",
-      "Mengyuan Liu"
+      "Weijie Wang",
+      "Zimu Li",
+      "Jinchuan Shi",
+      "Zeyu Zhang",
+      "Botao Ye",
+      "Marc Pollefeys",
+      "Donny Y. Chen",
+      "Bohan Zhuang"
     ],
     "categorias": [
-      "cs.CV",
+      "cs.CV"
+    ],
+    "publicado": "2026-05-25T17:59:53Z",
+    "actualizado": "2026-05-25T17:59:53Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26115v1"
+  },
+  {
+    "id_documento": "2605.26099v1",
+    "titulo": "Language Models Need Sleep",
+    "resumen": "Transformer-based large language models are increasingly used for long-horizon tasks; however, their attention mechanism scales poorly with context length. To handle this, we study a sleep-like consolidation mechanism in which a model periodically converts recent context into persistent fast weights before clearing its key-value cache. During sleep, the model performs $N$ offline recurrent passes over the accumulated context and updates the fast weights in its state-space model (SSM) blocks through a learned local rule. During inference, this shifts extra computation to sleep while preserving the latency of wake-time prediction. We test our method on controlled synthetic tasks, including cellular automata and multi-hop graph retrieval, as well as a realistic math reasoning task, on which a regular transformer as well as SSM-attention hybrid models fail. We then show that increasing sleep duration $N$ for our models improves performance, with the largest gains on examples that require deeper reasoning.",
+    "autores": [
+      "Sangyun Lee",
+      "Sean McLeish",
+      "Tom Goldstein",
+      "Giulia Fanti"
+    ],
+    "categorias": [
+      "cs.CL",
       "cs.AI"
     ],
-    "publicado": "2026-03-23T17:59:48Z",
-    "actualizado": "2026-03-23T17:59:48Z",
-    "url_pdf": "https://arxiv.org/pdf/2603.22282v1"
+    "publicado": "2026-05-25T17:55:39Z",
+    "actualizado": "2026-05-25T17:55:39Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26099v1"
   },
   {
-    "id_documento": "2603.22276v1",
-    "titulo": "Scaling DoRA: High-Rank Adaptation via Factored Norms and Fused Kernels",
-    "resumen": "Weight-Decomposed Low-Rank Adaptation (DoRA) extends LoRA by decoupling weight magnitude from direction, but its forward pass requires the row-wise norm of W + sBA, a computation that every major framework we surveyed implements by materializing the dense [d_out, d_in] product BA. At d_in = 8192 and rank r = 384, a single module's norm requires about 512 MB of transient working memory in bf16, making high-rank DoRA costly and often infeasible on common single-GPU setups once hundreds of adapted modules and checkpointing are involved.\n  We present two systems contributions. A factored norm decomposes the squared norm into base, cross, and Gram terms computable through O(d_out r + r^2) intermediates, eliminating the dense product. Fused Triton kernels collapse the four-kernel DoRA composition into a single pass, reducing memory traffic by about 4x and using a numerically stable form that avoids catastrophic cancellation in the near-unity rescaling regime where magnitude scales concentrate in practice.\n  Across six 8-32B vision-language models (VLMs) on three NVIDIA GPUs (RTX 6000 PRO, H200, B200) at r = 384 in bf16, the fused implementation is 1.5-2.0x faster than Hugging Face PEFT's DoRA implementation for inference and 1.5-1.9x faster for gradient computation (optimizer step excluded), with up to 7 GB lower peak VRAM. Microbenchmarks on six GPUs spanning four architecture generations (L40S, A100, RTX 6000 PRO, H200, B200, B300) confirm 1.5-2.7x compose-kernel speedup. Final-logit cosine similarity exceeds 0.9999 across all model/GPU pairs, and multi-seed training curves match within 7.1 x 10^-4 mean per-step loss delta over 2000 steps.",
+    "id_documento": "2605.26083v1",
+    "titulo": "Characterizing emergent multi-scale dynamics in colloidal nanoparticle gels",
+    "resumen": "Colloidal gels assembled from nanoparticles (NPs) are a versatile class of soft network-based materials capable of rich dynamic, mechanical, and even optical or magnetic responses to stimuli. Understanding how their hierarchically organized processes relate to macroscopic network properties remains a broad and unresolved problem in soft matter physics. The mechanisms of gel formation can depend sensitively on the pathway and the nature of NP interactions, thus far preventing a unified theoretical bridge between nanoscopic interactions and structural evolution and network dynamics. Indirect measurement of dynamics using light-scattering techniques provides an experimental means to quantify underlying particle and network motion. X-ray photon correlation spectroscopy (XPCS) has emerged as a powerful tool for probing nanoscopic motion in nanoparticle gels, but alone cannot resolve the full spatiotemporal spectrum of dynamics that drive gelation, aging, and network mechanical properties. While in situ rheo-XPCS enables simultaneous probing of nanoscale and bulk mechanical responses, complementary light scattering, microscopy, or simulations can extend spatiotemporal characterization and, consequently, understanding of NP gel network physics. Implementing a modular model platform with tunable primary nanoparticle features allows systematic variation of nanoscopic characteristics that drive emergent gel responses and inform the development of theoretical models for a wide range of soft, dynamic, nanostructured materials. The rapid expansion of XPCS capabilities at fourth-generation light sources, combined with complementary tools and robust model systems, positions the field to move beyond descriptive fundamental studies toward the design of nanoparticle gels with adaptive and programmable behaviors.",
     "autores": [
-      "Alexandra Zelenin",
-      "Alexandra Zhuravlyova"
+      "William D. Brackett",
+      "Zachary M. Sherman",
+      "Felix Lehmkühler",
+      "Thomas M. Truskett",
+      "Delia J. Milliron"
     ],
     "categorias": [
-      "cs.LG",
-      "stat.ML"
+      "cond-mat.soft",
+      "cond-mat.mes-hall",
+      "cond-mat.mtrl-sci",
+      "cond-mat.stat-mech"
     ],
-    "publicado": "2026-03-23T17:57:24Z",
-    "actualizado": "2026-03-23T17:57:24Z",
-    "url_pdf": "https://arxiv.org/pdf/2603.22276v1"
+    "publicado": "2026-05-25T17:47:52Z",
+    "actualizado": "2026-05-25T17:47:52Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26083v1"
   },
   {
-    "id_documento": "2603.22274v1",
-    "titulo": "Development and large-scale benchmarks of a protein-ligand absolute binding free energy toolkit",
-    "resumen": "Absolute binding free energy (ABFE) calculations offer a theoretically rigorous approach for predicting protein--ligand binding affinities without the scaffold constraints of relative binding free energy (RBFE) perturbations. However, broad adoption of ABFE in high-throughput hit discovery campaigns has been hindered by high computational costs and a lack of large-scale validation. Here, we present Felis, an open-source, automated, and scalable toolkit designed for high-throughput ABFE calculations. Paired with ByteFF, a previously developed data-driven molecular mechanics force field for drug-like molecules, Felis achieves ranking performance comparable to state-of-the-art RBFE methods on a diverse dataset comprising 43 protein targets and 859 ligands. Furthermore, we demonstrate robust convergence and ranking performance of Felis on a more challenging KRAS(G12D) dataset, where some ligands and the cofactor are highly charged. Crucially, all Felis predictions in this study were generated in a strict zero-shot manner, eschewing custom force-field modifications and alchemical schedule fine-tuning. This demonstrates the viability of Felis as an effective, ready-to-use tool for computational structure-based drug design.",
+    "id_documento": "2605.26081v1",
+    "titulo": "VeriTrace: Evolving Mental Models for Deep Research Agents",
+    "resumen": "Deep research agents face vast, interdependent, and pervasively uncertain information. Existing systems explore what evolving intermediate representations should look like, but leave their evolution to the LLM's implicit reasoning. Without explicit regulation, the intermediate layer is easily contaminated by mixed-quality information and propagates errors along its dependencies, so model scale often ends up substituting for absent regulation. We argue that an agent's mental model should instead evolve through explicit feedback that continuously aligns task understanding with reality, and identify three regulatory loops: interpretive update, deviation feedback, and schema revision. We realise this in VeriTrace, a cognitive-graph framework that explicitly implements the three loops. Using matched Qwen3.5-27B backbones, VeriTrace improves over the strongest matched baseline by 4.22 pp on DeepResearch Bench (DRB) Insight (1.49 pp Overall) and by 5.9 pp Overall win rate on DeepConsult. With Config-DeepSeek, it achieves the strongest reproducible open-source result on DRB.",
     "autores": [
-      "Yu Liu",
-      "Ailun Wang",
-      "Yu Xia",
-      "Zhi Wang",
-      "Wen Yan"
+      "Haolang Zhao",
+      "Yunbo Long",
+      "Lukas Beckenbauer",
+      "Alexandra Brintrup"
     ],
     "categorias": [
-      "physics.comp-ph"
+      "cs.AI"
     ],
-    "publicado": "2026-03-23T17:57:03Z",
-    "actualizado": "2026-03-23T17:57:03Z",
-    "url_pdf": "https://arxiv.org/pdf/2603.22274v1"
+    "publicado": "2026-05-25T17:46:57Z",
+    "actualizado": "2026-05-25T17:46:57Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26081v1"
+  },
+  {
+    "id_documento": "2605.26059v1",
+    "titulo": "Accelerating Bayesian inverse design in computational fluid dynamics using neural operators",
+    "resumen": "Bayesian inverse design provides a principled framework for inferring aerodynamic geometries from sparse flow observations while quantifying uncertainty. However, its practical use in computational fluid dynamics (CFD) is severely limited by the cost of repeated high-fidelity simulations required for gradient-based Markov chain Monte Carlo (MCMC) sampling. While surrogate models are commonly proposed to reduce this cost, their effect on posterior geometry and uncertainty, especially for shock-dominated flows, remains poorly understood. In this work, we demonstrate that neural operator surrogates can be embedded directly within the MCMC inference loop while preserving posterior structure. Using a fully Bayesian inverse formulation of quasi-one-dimensional nozzle flow, we demonstrate that geometry parameterization plays a decisive role in identifiability and posterior conditioning, with cubic B-splines yielding stable and physically meaningful uncertainty estimates. Building on this formulation, a Deep Operator Network trained on CFD-generated data is substituted for the CFD solver within a No-U-Turn Sampler, while keeping the likelihood model, priors, and sampling configuration unchanged. Across sparse to fully observed regimes, surrogate-based inference reproduces the posterior geometry and uncertainty trends of the CFD reference. As a result of surrogate integration, total inference time is reduced to under one second, corresponding to a speedup exceeding three orders of magnitude. In addition, a direct inverse neural operator is examined as a deterministic alternative for inverse design, enabling single-shot geometry reconstruction without posterior sampling. These results demonstrate that neural operator-accelerated Bayesian inference enables practical, uncertainty-aware inverse design workflows for aerodynamic applications.",
+    "autores": [
+      "Bipin Tiwari",
+      "Omer San"
+    ],
+    "categorias": [
+      "physics.flu-dyn",
+      "cs.LG"
+    ],
+    "publicado": "2026-05-25T17:18:18Z",
+    "actualizado": "2026-05-25T17:18:18Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26059v1"
+  },
+  {
+    "id_documento": "2605.26050v1",
+    "titulo": "Early- and Late-Time Modifications to $Λ$CDM: Implications for the Hubble Tension",
+    "resumen": "We investigate an extension of $Λ$CDM in which a fraction of cold Dark Matter (DM) decays into invisible dark radiation (DR) around the radiation-matter equality epoch, together with a non-standard dark energy (DE) equation of state characterized by $w_0$. The decaying DM component modifies the early expansion history and reduces the sound horizon at baryon drag, while the DE alters the expansion rate at the late times. A comprehensive analysis combining \\texttt{Planck 2018+ACT DR6+DESI DR2+CMB lensing} datasets has been carried out to explore the viability of this framework in addressing the $H_0$ tension. This model yields a Hubble constant of $H_0 = 69.83 \\pm 0.98~\\mathrm{km\\,s^{-1}\\,Mpc^{-1}}$, reducing the discrepancy with SH0ES measurement to ${\\sim}2.2σ$ and local distance network measurement (H0DN) to ${\\sim}2.9σ$. Further, considering \\texttt{SH0ES} and \\texttt{Pantheon+}, the inferred value of the Hubble constant becomes $H_0 = 70.20 \\pm 0.66~\\mathrm{km\\,s^{-1}\\,Mpc^{-1}}$. The Bayesian evidence suggests that this framework offers a fit to the relevant cosmological datasets at a statistically similar level as $Λ$CDM. It is observed that correlated early- and late-time modifications to the cosmological expansion history provide a more effective route to reducing the $H_0$ tension than either class of modification alone.",
+    "autores": [
+      "Rahul Dhyani",
+      "Purba Mukherjee",
+      "Arindam Chatterjee",
+      "Anjan A Sen"
+    ],
+    "categorias": [
+      "astro-ph.CO",
+      "hep-ph"
+    ],
+    "publicado": "2026-05-25T17:12:16Z",
+    "actualizado": "2026-05-25T17:12:16Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26050v1"
+  },
+  {
+    "id_documento": "2605.26044v1",
+    "titulo": "Magnetic ground state of a prototype quasicrystal approximant: a candidate for octahedral spin ice physics",
+    "resumen": "Magnetic ordering in quasicrystals has recently emerged as a fertile ground for discovering unconventional magnetic states beyond the framework of periodic crystals. However, elucidating the microscopic origin of such states remains challenging due to the intrinsic aperiodicity of quasicrystals. Here, we address this issue by investigating the prototypical Tsai-type quasicrystal approximant Cd6Tb, which preserves the essential local geometry and connectivity of icosahedral quasicrystals while allowing detailed structural and magnetic characterization due to its translational periodicity. Using neutron diffraction measurements, we find a noncoplanar multi-k magnetic ground state composed of Ising-like Tb moments arranged on a network of corner-sharing octahedra, the ingredients required to host octahedral spin-ice physics. Remarkably, only one third of the Tb moments develop long-range magnetic order, whereas the remaining moments display strongly reduced static order accompanied by persistent spin dynamics on microsecond timescales, as evidenced by muon spin rotation. This coexistence of ordered and fluctuating moments constitutes a potential realization of magnetic fragmentation - a key prediction of octahedral spin-ice physics - in a quasicrystal-related material.",
+    "autores": [
+      "Leonie Woodland",
+      "Farid Labib",
+      "Dmitry Khalyavin",
+      "Pascal Manuel",
+      "Fabio Orlandi",
+      "Hubertus Luetkens",
+      "Ryuji Tamura"
+    ],
+    "categorias": [
+      "cond-mat.str-el",
+      "cond-mat.mtrl-sci"
+    ],
+    "publicado": "2026-05-25T17:08:39Z",
+    "actualizado": "2026-05-25T17:08:39Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26044v1"
+  },
+  {
+    "id_documento": "2605.26042v1",
+    "titulo": "Alt-CC-PINN: An Alternating Optimization Framework with Implicit Neural Representation for Microwave Inverse Scattering Imaging",
+    "resumen": "Microwave inverse scattering imaging (MISI) is a crucial computational technique in microwave nondestructive evaluation and near-field microwave sensing systems. However, quantitative reconstruction of high-contrast targets remains a formidable challenge due to severe multiple scattering effects and the inherent ill-posedness of electromagnetic inverse problems. To overcome this fundamental bottleneck in computational microwave imaging, this paper proposes an alternating optimization framework based on cross-correlated physics-informed neural network (Alt-CC-PINN). This architecture deeply decouples the evolution of the microwave physical field from the neural-network-based dielectric parameter inference, replacing traditional joint optimization with a hybrid alternating engine. Specifically, the method employs an analytical Polak-Ribière conjugate gradient (PR-CG) algorithm driven by a cross-correlated loss to optimally update the contrast sources, and deploys batched zero-padded 2D-FFT to ensure high computational efficiency. Subsequently, a deep learning optimizer is utilized to update the continuous neural representation. Extensive validations based on simulated and measured data demonstrate that Alt-CC-PINN effectively overcomes the local minima problem in high-contrast and low-signal-to-noise-ratio (SNR) environments. It exhibits superior reconstruction fidelity and robustness under the frequency-hopping probing strategy, providing a powerful and reliable computational electromagnetic solver for practical microwave imaging systems.",
+    "autores": [
+      "Shilong Sun"
+    ],
+    "categorias": [
+      "eess.SP"
+    ],
+    "publicado": "2026-05-25T17:08:09Z",
+    "actualizado": "2026-05-25T17:08:09Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26042v1"
+  },
+  {
+    "id_documento": "2605.26040v1",
+    "titulo": "L2IR: Revealing Latent Intent in Graph Fraud Detection",
+    "resumen": "Graph fraud detection has long depended on Graph Neural Networks (GNNs) to propagate and aggregate information across relational data. A critical obstacle in practice, however, is that fraudsters frequently disguise themselves by forging numerous connections with benign users, causing fraud signals to be progressively diluted during neighborhood aggregation and undermining detection reliability. While recent efforts have used Large Language Models (LLMs) to provide rich semantic cues for fraud detection, the underlying intent behind suspicious connections remains insufficiently explored. Compounding this issue, the scarcity of annotated fraud samples makes it difficult to train detectors that remain robust under heavy camouflage. To address these gaps, we propose L2IR, an LLM-driven Latent Intent Revealing framework for graph fraud detection. By uncovering latent intent from both user behaviors and suspicious connections, L2IR extracts intent-aware representations from raw behavioral traces and reasons about the true purpose behind individual connections, effectively distinguishing supportive links from misleading ones. It further incorporates adaptive self-training to enhance robustness under limited supervision. Evaluations on two real-world datasets characterized by pervasive camouflage demonstrate that L2IR surpasses strong baselines and can function as a plug-in enhancement for a range of GNN-based detectors, improving AUPRC by up to 8.27%.",
+    "autores": [
+      "Jinsheng Guo",
+      "Zhenhao Weng",
+      "Yibo Liu",
+      "Yan Qiao",
+      "Meng Li"
+    ],
+    "categorias": [
+      "cs.AI"
+    ],
+    "publicado": "2026-05-25T17:06:13Z",
+    "actualizado": "2026-05-25T17:06:13Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26040v1"
+  },
+  {
+    "id_documento": "2605.26037v1",
+    "titulo": "Peak-Then-Collapse and the Four Interface Channels of Knowledge-Graph Tool Use",
+    "resumen": "We test the standard RLVR tool-use recipe -- GRPO on Qwen2.5-7B-Instruct -- on a deliberately minimal knowledge-graph tool API: four Freebase navigation verbs over Complex WebQuestions. Under a self-verifiable retrieval reward, the policy's tool-grounded answer rate climbs from $3.8\\%$ to $9.6\\%$ over 250 steps, then collapses to $0\\%$ within a single 50-step window -- a \\emph{peak-then-collapse} pattern replicated across four seeds. Across seven reward designs, we find four recurring failure modes: adding denser or more targeted proxy rewards shifts the failure mode rather than eliminating it. We argue that a key difference from Python interpreters, web search, and JSON APIs is interface feedback: their failures often leak natural-language signal the model saw in pretraining. A Python traceback names the failing line; an empty Freebase result \\texttt{[]} does not. Stripping away that surface exposes a degradation regime that same-family reward redesigns do not fix. A direct oracle ablation rules out relation selection: injecting gold relations at every retrieval call lifts exact-match accuracy by only $+0.20$~pp, and $95.4\\%$ of retrieval-dependent errors are retrieval-composition failures rather than answer-extraction failures. As a mitigation, one-iteration self-distillation reaches $40.0\\%$ EM at 7B and is capacity-invariant: doubling capacity to 14B improves EM by only $0.25$~pp, and initialization barely matters -- the ceiling appears interface-bound within the 7B--14B range tested.",
+    "autores": [
+      "Tianda Sun",
+      "Dimitar Kazakov"
+    ],
+    "categorias": [
+      "cs.CL"
+    ],
+    "publicado": "2026-05-25T17:05:35Z",
+    "actualizado": "2026-05-25T17:05:35Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.26037v1"
   }
 ]

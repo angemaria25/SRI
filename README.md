@@ -18,11 +18,15 @@ La aplicacion inicia desde `main.py`.
 ### Modulos imprescindibles implementados
 - `modulos/adquisicion_datos`: construccion de corpus local desde PDF y adquisicion web desde arXiv API.
 - `modulos/indexacion`: preprocesamiento e indice invertido.
-- `modulos/recuperacion`: recuperador no basico (modelo probabilistico de lenguaje).
-- `modulos/base_vectorial`: base vectorial inicial con TF-IDF.
+- `modulos/recuperacion`: recuperador no basico (modelo probabilistico de lenguaje) con suavizado Dirichlet.
+- `modulos/base_vectorial`: base vectorial mejorada con TF-IDF disperso y busqueda eficiente.
+- `modulos/rag`: RAG generativo con HuggingFace y respaldo extractivo con citas.
 
 ### Soporte de respaldo web implementado
 - `modulos/busqueda_web`: consulta en arXiv cuando los resultados locales son insuficientes.
+
+### Extensibilidad del sistema
+La arquitectura conserva espacios para posicionamiento, interfaz visual y modulos opcionales de expansion, multimodalidad, recomendacion y evaluacion.
 
 ## Flujo funcional implementado (Primera Entrega)
 1. El sistema toma como base los PDF de `local/local_papers`.
@@ -32,16 +36,6 @@ La aplicacion inicia desde `main.py`.
 5. Ejecuta recuperacion local con modelo de lenguaje y similitud vectorial.
 6. Guarda resultados y estadisticas en `datos/procesados`.
 7. Si hay pocos resultados locales, activa respaldo web en arXiv y guarda `datos/brutos/corpus_web_arxiv.jsonl`.
-
-### Modulos imprescindibles creados y pendientes
-- `modulos/rag`
-- `modulos/posicionamiento`
-
-### Modulos opcionales creados y pendientes
-- `modulos/expansion_retroalimentacion`
-- `modulos/multimodal`
-- `modulos/recomendacion`
-- `modulos/evaluacion`
 
 ## Ejecucion local
 Instalacion de dependencias:
@@ -111,12 +105,20 @@ docker compose up descargador_local
 
 ## Evidencias generadas por el sistema
 - `datos/brutos/corpus_local.jsonl`
+- `datos/brutos/corpus_web_arxiv.jsonl`
+- `datos/brutos/corpus_combinado.jsonl`
 - `datos/brutos/crawl_web/registros.jsonl`
 - `datos/brutos/crawl_web/html/`
 - `datos/brutos/crawl_web/texto/`
 - `datos/indices/indice_invertido.json`
-- `datos/base_vectorial/vectores.npy`
+- `datos/indices_combinados/`
+- `datos/base_vectorial_mejorada/vectores.npz`
 - `datos/procesados/estadisticas_corpus_local.json`
 - `datos/procesados/resultados_locales_modelo_lenguaje.json`
 - `datos/procesados/resultados_locales_vectorial.json`
+- `datos/procesados/resultados_combinados_modelo_lenguaje.json`
+- `datos/procesados/resultados_combinados_vectorial.json`
 - `datos/procesados/respuesta_sistema.json`
+
+Nota: los archivos combinados (`corpus_combinado.jsonl` y resultados combinados)
+se generan solo cuando se activa el respaldo web.

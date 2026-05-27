@@ -27,6 +27,15 @@ locales son insuficientes, activa una busqueda de respaldo en arXiv.
 El dominio seleccionado es \textit{investigacion cientifica y academica}, con
 fuentes de datos basadas en publicaciones de arXiv.
 
+\section{Justificacion del Modelo de Recuperacion}
+Se selecciona el modelo probabilistico de lenguaje (Query Likelihood) porque
+permite capturar la distribucion de terminos en documentos cientificos, donde
+los resumenes y titulos contienen vocabulario tecnico con alta variabilidad.
+El suavizado Dirichlet ofrece una forma robusta de manejar terminos raros y
+documentos cortos, caracteristicos del dominio academico. La definicion y
+fundamentos se basan en Croft et al. (2010), referencia incluida en la
+bibliografia.
+
 \section{Arquitectura Modular}
 La arquitectura del proyecto se organiza en modulos:
 \begin{itemize}
@@ -35,14 +44,24 @@ La arquitectura del proyecto se organiza en modulos:
 \item Indexacion.
 \item Recuperacion.
 \item Base vectorial.
-\item RAG (pendiente).
+\item RAG generativo con HuggingFace.
 \item Posicionamiento (pendiente).
 \item Busqueda web (respaldo arXiv).
-\item Modulos opcionales: expansion y retroalimentacion, multimodal,
-recomendacion y evaluacion (pendientes).
+\item Modulos opcionales para extensibilidad futura.
 \end{itemize}
 
 \section{Implementacion Actual}
+\subsection{Corte 1: Adquisicion, indexacion y recuperacion basica}
+Se implementa el flujo base de adquisicion (PDF local y crawler web), indexacion
+con indice invertido, modelo de lenguaje no basico y base vectorial inicial,
+con evidencia persistida en \texttt{datos}.
+
+\subsection{Corte 2: Integracion avanzada}
+Se incorpora un RAG generativo con HuggingFace, se mejora el recuperador con
+suavizado Dirichlet y soporte opcional de PRF, se refina la base vectorial con
+busqueda por similitud eficiente y se integra la busqueda web para combinacion
+e indexacion futura de resultados.
+
 \subsection{Adquisicion de datos}
 Se construye un corpus local en JSONL a partir de los PDF ubicados en
 \texttt{local/local\_papers}. Para cada documento se extrae texto y se generan
@@ -64,10 +83,28 @@ persistiendo estructuras en disco para uso posterior.
 
 \subsection{Recuperacion}
 Se implementa un modelo probabilistico de lenguaje (Query Likelihood) con
-suavizado Jelinek-Mercer para ranking inicial de resultados locales.
+suavizado Dirichlet como refinamiento del modelo, y soporte opcional de
+retroalimentacion por pseudo-relevancia para expansion de consultas.
+
+\subsection{RAG}
+Se incorpora un modulo RAG generativo que combina el recuperador con un
+modelo de HuggingFace para producir respuestas enriquecidas a partir de los
+documentos recuperados. El generador recibe como contexto los titulos y
+resumenes de los documentos relevantes y devuelve una respuesta en lenguaje
+natural con trazabilidad hacia las fuentes utilizadas. Por defecto se utiliza
+\texttt{google/flan-t5-small}, por su tamano reducido, su facilidad de uso en
+CPU y su capacidad para seguir instrucciones en tareas de preguntas y
+respuestas. En caso de no estar disponible la libreria o el modelo, el sistema
+mantiene un respaldo extractivo para no perder funcionamiento ni trazabilidad.
 
 \subsection{Base vectorial}
-Se construyen representaciones TF-IDF para almacenamiento vectorial inicial.
+Se construyen representaciones TF-IDF dispersas con bigramas y busqueda por
+similitud eficiente mediante indice de vecinos cercanos.
+
+\subsection{Busqueda web integrada}
+Cuando los resultados locales son insuficientes, se consulta arXiv, se
+procesan los documentos web y se combinan con el corpus local para
+reindexacion y almacenamiento en un corpus combinado reutilizable.
 
 \subsection{Salida de resultados}
 El sistema persiste resultados y evidencia de ejecucion en \texttt{datos}:
@@ -98,8 +135,8 @@ se realiza desde \texttt{local/scrapping.py}. La consulta se puede pasar por
 linea de comandos con \texttt{--consulta}.
 
 \section{Trabajo Futuro}
-Las siguientes fases incorporaran integracion RAG, modulo de posicionamiento,
-busqueda web automatica e interfaz visual completa.
+Las siguientes fases incorporaran modulo de posicionamiento e interfaz visual
+completa, junto con mejoras adicionales del sistema.
 
 \section{Bibliografia Base}
 \begin{thebibliography}{1}
@@ -108,5 +145,11 @@ Croft, W. B., Metzler, D., Strohman, T.:
 Search Engines: Information Retrieval in Practice.
 Addison-Wesley (2010)
 \end{thebibliography}
+
+\section{Reproducibilidad}
+El proyecto incluye un repositorio Git para control de versiones y archivos
+\texttt{Dockerfile} y \texttt{docker-compose.yml} para ejecutar el sistema en
+entornos compatibles con Docker. La ejecucion y dependencias estan descritas
+en el archivo \texttt{README.md} del repositorio.
 
 \end{document}

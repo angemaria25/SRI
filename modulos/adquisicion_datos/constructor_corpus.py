@@ -37,6 +37,13 @@ def cargar_corpus_jsonl(ruta_entrada: Path) -> list[dict]:
     return registros
 
 
+def guardar_documentos_jsonl(ruta_salida: Path, documentos: list[dict]) -> None:
+    ruta_salida.parent.mkdir(parents=True, exist_ok=True)
+    with ruta_salida.open("w", encoding="utf-8") as archivo:
+        for documento in documentos:
+            archivo.write(json.dumps(documento, ensure_ascii=False) + "\n")
+
+
 def generar_estadisticas_corpus(documentos: list[dict]) -> dict:
     categorias = Counter()
     longitudes_resumen = []

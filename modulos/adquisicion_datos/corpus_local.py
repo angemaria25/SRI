@@ -64,6 +64,12 @@ def construir_corpus_local_desde_pdfs(
             titulo = _titulo_desde_nombre_archivo(ruta_pdf.name)
             resumen = texto[:2000]
 
+            try:
+                ruta_relativa = ruta_pdf.relative_to(ruta_carpeta_pdfs.parent)
+                ruta_pdf_local = str(ruta_relativa)
+            except ValueError:
+                ruta_pdf_local = ruta_pdf.name
+
             registro = {
                 "id_documento": id_documento,
                 "titulo": titulo,
@@ -73,7 +79,7 @@ def construir_corpus_local_desde_pdfs(
                 "publicado": "",
                 "actualizado": "",
                 "url_pdf": "",
-                "ruta_pdf_local": str(ruta_pdf),
+                "ruta_pdf_local": ruta_pdf_local,
                 "fuente": "local_pdf",
             }
 

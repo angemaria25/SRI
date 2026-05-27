@@ -1,14 +1,14 @@
 {
-  "cantidad_documentos": 50,
-  "promedio_palabras_resumen": 267.44,
+  "cantidad_documentos": 1023,
+  "promedio_palabras_resumen": 269.8,
   "top_categorias": [
     [
       "investigacion_cientifica",
-      50
+      1023
     ],
     [
       "academico",
-      50
+      1023
     ]
   ],
   "fecha_publicacion_min": null,
