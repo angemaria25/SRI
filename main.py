@@ -23,27 +23,45 @@ def _guardar_json(ruta: Path, datos: dict | list) -> None:
     ruta.write_text(json.dumps(datos, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def _requiere_respaldo_web(resultados_locales: list[dict], minimo_resultados: int = 3) -> bool:
-    if len(resultados_locales) < minimo_resultados:
+def _requiere_respaldo_web(resultados_locales: list[dict], consulta: str, indice: IndiceInvertido) -> bool:
+    if not resultados_locales:
         return True
 
-    puntajes = [float(item.get("puntaje", 0.0)) for item in resultados_locales]
-    if not puntajes:
+    from modulos.indexacion.preprocesamiento import PreprocesadorTexto
+    prep = PreprocesadorTexto()
+    tokens_consulta = prep.tokenizar(consulta)
+    
+    palabras_conocidas = [t for t in tokens_consulta if t in indice.indice]
+    
+    cobertura = len(palabras_conocidas) / len(tokens_consulta) if tokens_consulta else 0
+    print(f"DEBUG: Cobertura de vocabulario = {cobertura*100:.1f}%")
+
+    if cobertura < 0.4:
+        print("-> MOTIVO: La base de datos local no conoce la mayoría de las palabras de la consulta.")
         return True
 
-    if len(set(round(puntaje, 10) for puntaje in puntajes)) <= 1:
+    mejor_puntaje = float(resultados_locales[0].get("puntaje", -1000))
+    print(f"DEBUG: Mejor puntaje = {mejor_puntaje}")
+
+    if mejor_puntaje < -15.0: 
+        print("-> MOTIVO: Puntaje de lenguaje insuficiente.")
         return True
 
     return False
 
-
-def _resultados_vectoriales_insuficientes(resultados_vectoriales: list[dict]) -> bool:
+def _resultados_vectoriales_insuficientes(resultados_vectoriales: list[dict], umbral_similitud: float = 0.12) -> bool:
     if not resultados_vectoriales:
         return True
 
+   
     similitudes = [float(item.get("similitud", 0.0)) for item in resultados_vectoriales]
-    return max(similitudes, default=0.0) <= 0.0
+    mejor_similitud = max(similitudes, default=0.0)
 
+    if mejor_similitud < umbral_similitud:
+        print(f"Similitud vectorial insuficiente ({mejor_similitud}).")
+        return True
+        
+    return False
 
 def _convertir_resultados_web(resultados_web: list[dict]) -> list[dict]:
     documentos: list[dict] = []
@@ -162,7 +180,7 @@ def ejecutar_flujo_principal(
         "resultados_web": [],
     }
 
-    if _requiere_respaldo_web(resultados_locales) or _resultados_vectoriales_insuficientes(
+    if _requiere_respaldo_web(resultados_locales, consulta_usuario, indice) or _resultados_vectoriales_insuficientes(
         resultados_vectoriales_formato
     ):
         print("Resultados locales insuficientes. Se activa busqueda de respaldo en arXiv...")
