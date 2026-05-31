@@ -44,6 +44,7 @@ class RecuperadorModeloLenguaje:
         return conteos
 
     def buscar(self, consulta: str, top_k: int = 10) -> list[dict]:
+
         terminos_consulta = self.preprocesador.tokenizar(consulta)
         if not terminos_consulta:
             return []
@@ -62,8 +63,10 @@ class RecuperadorModeloLenguaje:
         if not candidatos:
             return []
 
+        anio_actual = datetime.now().year
+
         for doc_id in candidatos:
-            puntaje_doc = 0.0
+            puntaje_tecnico = 0.0
             longitud_doc = max(int(self.indice.longitudes_documentos[doc_id]), 1)
 
             for termino in terminos_existentes:
@@ -79,6 +82,7 @@ class RecuperadorModeloLenguaje:
                         + self.lambda_parametro * prob_coleccion
                     )
                 else:
+                    # Suavizado de Dirichlet
                     prob_suavizada = (
                         (tf_doc + self.mu_parametro * prob_coleccion)
                         / (longitud_doc + self.mu_parametro)
@@ -86,20 +90,40 @@ class RecuperadorModeloLenguaje:
 
                 if prob_suavizada <= 0.0:
                     continue
-                puntaje_doc += math.log(prob_suavizada)
+                puntaje_tecnico += math.log(prob_suavizada)
 
-            puntajes[doc_id] = puntaje_doc
+            # 2. MÓDULO DE POSICIONAMIENTO (Factor de Frescura)
+            documento_data = self.indice.almacen_documentos.get(doc_id, {})
+            fecha_pub = documento_data.get("publicado", "")
+            
+            ajuste_posicionamiento = 0.0
+            if fecha_pub:
+                try:
+                    anio_paper = int(fecha_pub[:4])
+                    edad = max(0, anio_actual - anio_paper)
+                    
 
+                    ajuste_posicionamiento = 0.1 * math.log(edad + 2)
+                except (ValueError, IndexError):
+                    ajuste_posicionamiento = 0.0
+
+            # 3. PUNTAJE FINAL: Combinación de ambos módulos
+
+            puntajes[doc_id] = puntaje_tecnico - ajuste_posicionamiento
+
+        # Ordenar resultados por el puntaje final ajustado
         ranking = sorted(
             puntajes.items(),
             key=lambda item: (item[1], item[0]),
             reverse=True,
         )[:top_k]
+
         return [
             {
                 "doc_id": doc_id,
                 "puntaje": puntaje,
                 "documento": self.indice.almacen_documentos.get(doc_id, {}),
+                "posicionamiento_aplicado": True 
             }
             for doc_id, puntaje in ranking
         ]
