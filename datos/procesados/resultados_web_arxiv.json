@@ -1,181 +1,576 @@
 [
   {
-    "id_documento": "2605.26115v1",
-    "titulo": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
-    "resumen": "Sparse-view 3D reconstruction is increasingly addressed with feed-forward splatting networks that predict explicit primitives directly from images. Yet most existing methods remain centered on Gaussian primitives and expose surfaces only indirectly: extracting a usable mesh for downstream simulation, physics reasoning, or embodied interaction still requires expensive post-hoc steps that break the feed-forward promise. This limitation is especially pronounced in pose-free settings, where scene structure and camera parameters must be estimated jointly from sparse observations. We present TriSplat, a feed-forward reconstruction network that represents scenes with oriented triangle primitives and directly exports simulation-ready mesh scenes from a single forward pass. Given input images, the network predicts local 3D point maps, triangle attributes, camera poses, and optional intrinsics. Rather than regressing triangle orientation as an unconstrained latent variable, our approach constructs geometry normals from the predicted point maps, refines them with an image-conditioned normal head, and converts them into stable local frames for triangle parameterization. A mono-normal bootstrap schedule further stabilizes early training, while opacity and blur scheduling progressively sharpens the learned surface representation for direct mesh extraction. Experiments on RealEstate10K and DL3DV show that this representation produces more geometry-faithful reconstructions than Gaussian feed-forward baselines while maintaining competitive novel-view rendering quality. Because the rendering primitives are themselves surface triangles, the output can be directly ingested by physics engines, collision detectors, and standard rendering pipelines without any conversion, making it a practical simulation-ready solution for feed-forward 3D scene reconstruction.",
+    "id_documento": "2605.30287v1",
+    "titulo": "MoSAIC: Multi-Resolution Spatial Regression Analysis of Cellular Colocalizations in Cancer Imaging",
+    "resumen": "Hierarchical multiplex imaging approaches generate spatially resolved single-cell measurements across multiple, spatially organized fields of view (FOVs) within patient tumor specimens, thereby enabling systematic investigation of how the organization of the tumor microenvironment varies along biologically meaningful intratumoral gradients. Existing approaches fail to jointly address this multi-resolution data structure needed to recover true biological signals. We propose MoSAIC: multi-resolution spatial regression analysis of cell colocalizations, a hierarchical Bayesian spatial regression model designed for multi-resolution spatial data. MoSAIC decomposes the joint variation into three model components: (i) global tumor-gradient effects, (ii) patient-specific effects to capture inter-patient variability, and (iii) Gaussian process models to account for spatial dependence between FOVs within each patient tumor tissue. Simulations demonstrate MoSAIC has improved prediction and model fit compared to existing spatial and non-spatial model alternatives. Our method is motivated by and applied to a renal cell carcinoma multiplex imaging cohort to investigate immune-tumor colocalization patterns across the epithelial-to-mesenchymal transition (EMT) gradient. MoSAIC identifies increased macrophage-tumor colocalization and decreased cytotoxic T-tumor colocalization progressing across the increasing EMT gradient, consistent with EMT-associated immune suppression and spatially varying immune engagement. Overall, MoSAIC provides an interpretable, multi-resolution framework for quantifying spatial tumor-gradient effects in cancer imaging studies. Software is available on GitHub at jcaldous/MoSAIC.",
     "autores": [
-      "Weijie Wang",
-      "Zimu Li",
-      "Jinchuan Shi",
-      "Zeyu Zhang",
-      "Botao Ye",
-      "Marc Pollefeys",
-      "Donny Y. Chen",
-      "Bohan Zhuang"
+      "Jessica Aldous",
+      "Michele Peruzzi",
+      "Maria Masotti",
+      "Aaron Udager",
+      "Allison May",
+      "Evan Keller",
+      "Veerabhadran Baladandayuthapani"
+    ],
+    "categorias": [
+      "stat.ME"
+    ],
+    "publicado": "2026-05-28T17:40:35Z",
+    "actualizado": "2026-05-28T17:40:35Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30287v1"
+  },
+  {
+    "id_documento": "2605.30208v1",
+    "titulo": "Automating Low-Risk Code Review at Meta: RADAR, Risk Calibration, and Review Efficiency",
+    "resumen": "AI-assisted coding tools have altered software production. At Meta, significant lines of code per human-landed diff grew by 105.9% year over year and per-developer diff volume rose 51%, with agentic AI responsible for over 80% of that growth. Meanwhile, the share of diffs receiving timely review has declined, exposing a widening gap between code supply and reviewer bandwidth. We ask three questions that progress from feasibility through calibration to impact: (1) can risk-stratified automation operate at scale across diverse organizations, (2) how does tuning the risk threshold affect the trade-off between automation yield and safety, and (3) to what extent does automated review reduce end-to-end latency for AI-generated changes? We deployed RADAR (Risk Aware Diff Auto Review), a multi-stage funnel that classifies each diff by authorship and source type, applies eligibility gates, static heuristics, a machine-learned Diff Risk Score, LLM-based Automated Code Review, and deterministic validation before landing qualifying changes. We evaluate RADAR through telemetry covering 535K+ RADAR-reviewed diffs, observational before-after comparisons for policy changes, and difference-in-differences analysis of efficiency outcomes. RADAR has reviewed 535K+ diffs and landed 331K+. Relaxing the Diff Risk Score threshold from the 25th to the 50th percentile increased the approve rate to 60.31%. The revert rate for RADAR-reviewed diffs is 1/3 that of non-RADAR diffs, and the Production Incident rate is 1/50 that of non-RADAR diffs. RADAR reduces median time to close by over 330% and median diff review wall time by 35%. Risk-aware layered automation can materially reduce review bottlenecks created by AI-driven code growth without compromising production safety.",
+    "autores": [
+      "Chris Adams",
+      "Arjun Singh Banga",
+      "Parveen Bansal",
+      "Souvik Bhattacharya",
+      "Rujin Cao",
+      "Pedro Canahuati",
+      "Nate Cook",
+      "Brian Ellis",
+      "Prabhakar Goyal",
+      "Gurinder Grewal",
+      "Tianyu He",
+      "Matt Labunka",
+      "Alex Manners",
+      "David Molnar",
+      "Ging Cee Ng",
+      "Vishal Parekh",
+      "Jiefu Pei",
+      "Frederic Sagnes",
+      "James Saindon",
+      "Will Shackleton",
+      "Sid Sidhu",
+      "Gursharan Singh",
+      "Karthik Chengayan Sridhar",
+      "Matt Steiner",
+      "Pratibha Udmalpet",
+      "Sean Xia",
+      "Stacey Yan",
+      "Audris Mockus",
+      "Peter Rigby",
+      "Nachiappan Nagappan"
+    ],
+    "categorias": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "publicado": "2026-05-28T16:44:07Z",
+    "actualizado": "2026-05-28T16:44:07Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30208v1"
+  },
+  {
+    "id_documento": "2605.30180v1",
+    "titulo": "The polarization of thermal dileptons emitted in high-energy heavy-ion collisions",
+    "resumen": "This work presents calculations of thermal dilepton emission and polarization observables. It features a comprehensive framework which comprises virtual photon spectral functions complete at next-to-leading-order in the strong coupling and iEBE-MUSIC hydrodynamic simulations. The polarization of thermal lepton pairs is shown to be sensitive to in-medium properties of the quark-gluon plasma. We consider Pb+Pb collisions performed in conditions specific to the LHC and examine the magnitude and behaviour of the polarization as measured in different frames, the effects of the pre-equilibrium gluon abundance, and we derive a one-to-one mapping between dielectron and dimuon polarization.",
+    "autores": [
+      "Han Gao",
+      "Xiang-Yu Wu",
+      "Charles Gale",
+      "Greg Jackson",
+      "Sangyong Jeon"
+    ],
+    "categorias": [
+      "nucl-th"
+    ],
+    "publicado": "2026-05-28T16:27:49Z",
+    "actualizado": "2026-05-28T16:27:49Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30180v1"
+  },
+  {
+    "id_documento": "2605.30166v1",
+    "titulo": "SAHG: Sector-Anisotropic Hyperbolic Graph Model for Social Bot Detection",
+    "resumen": "LLM-driven social bots can generate fluent, human-like text, reducing the discriminative advantage of content-based detection alone. However, coordinated campaigns still leave relational patterns -- interactions, behavioral similarity, shared neighborhoods, community positions, and coordinated activity -- that graph-based methods can exploit. Existing graph detectors face two challenges when exploiting such evidence. First, Euclidean GNNs distort hierarchical and scale-free social graphs; while hyperbolic geometry addresses this volume-growth mismatch, fixed-curvature models still assign uniform geometric resolution to structural directions with different densities and separation needs. Second, relational evidence is not always reliable: sophisticated bots forge heterophilic connections with genuine users, causing neighborhood aggregation to mix bot and human signals and dilute account-level evidence. We propose \\textsc{SAHG} (Sector-Anisotropic Hyperbolic Graph), addressing both challenges. \\textsc{SAHG} learns a direction-dependent curvature field $γ(u)$ that adapts geometric resolution across structural directions, and uses sector prototypes to convert angular concentration and alignment into classifier-readable features. To prevent contaminated aggregation from overwhelming account-level evidence, \\textsc{SAHG} encodes per-account features and graph-neighborhood representations in two independent SAH channels, fusing them only at the classifier. Experiments on Fox8-23, BotSim-24, and MGTAB show that \\textsc{SAHG} achieves the highest accuracy and F1 on all three benchmarks, outperforming feature-based, graph-based, LLM-based, and isotropic hyperbolic baselines. Ablation and geometric analyses confirm the effectiveness of the anisotropic geometry and dual-channel design.",
+    "autores": [
+      "Hanning Lu",
+      "Yingguang Yang",
+      "Jinwei Su",
+      "Yang Liu",
+      "Zhaoqian Yao",
+      "Yaoming Li",
+      "Taoran Liang",
+      "Ziyi Zhang",
+      "Ran Ran",
+      "Kefu Xu",
+      "Bin Chong"
+    ],
+    "categorias": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "publicado": "2026-05-28T16:19:14Z",
+    "actualizado": "2026-05-28T16:19:14Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30166v1"
+  },
+  {
+    "id_documento": "2605.30163v1",
+    "titulo": "A finitely presented group of non-uniform exponential growth",
+    "resumen": "We provide the first example of a finitely presented, and the first example of a simple, group of non-uniform exponential growth. The example is given by Thompson's group V.",
+    "autores": [
+      "Roman Sauer",
+      "Eduard Schesler"
+    ],
+    "categorias": [
+      "math.GR"
+    ],
+    "publicado": "2026-05-28T16:18:08Z",
+    "actualizado": "2026-05-28T16:18:08Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30163v1"
+  },
+  {
+    "id_documento": "2605.30162v1",
+    "titulo": "BioRefusalAudit: Auditing Biosecurity Refusal Depth Using General and Domain-Fine-Tuned Sparse Autoencoders",
+    "resumen": "Biosecurity evaluations of language models typically ask whether models produce hazardous output. This paper asks a complementary question: when a model refuses, is that refusal structurally sound, or does it disappear under modest changes to prompt framing, formatting, or output length? Across five architectures, no model cleanly discriminated benign from hazard. Gemma 2 2B-IT never genuinely refused across 75 prompts, hedging on every hazard-adjacent query. Gemma 4 E2B-IT refused 65/75 prompts with chat-template formatting and 0/75 without it. Both Gemma models collapsed to 0% under an 80-token cap. Qwen 2.5 1.5B and Phi-3-mini over-refused, flagging 83-87% of benign biology as hazardous. Llama 3.2 1B showed the only meaningful tier gradient (61-point spread). To probe what drives such over-refusal, we tested a panel of Schedule I but biologically non-toxic compounds (notably psilocybin cultivation, with FDA Breakthrough Therapy status). Some models refused these at rates exceeding genuinely hazardous biology, suggesting refusal tracks legality and cultural salience over CBRN hazard. To measure the internal side, we introduce a divergence score D comparing a model's surface response label to its internal sparse autoencoder (SAE) feature activations. Full D was computed on Gemma 2 2B-IT (Gemma Scope 1) and Gemma 4 E2B-IT (author-trained bio SAE). Two fine-tuned Gemma 2 domain SAEs were released. On Gemma 4, comply and refuse responses separated by a 0.647-point gap with zero overlap (n=75), though this is preliminary, with a narrow catalog, within-sample calibration, and Gemma-family-only SAE coverage. Built over one hackathon weekend on consumer hardware (GTX 1650 Ti Max-Q, plus Colab T4 for SAE training), this preliminary evidence suggests activation-level auditing may surface failure modes invisible to behavioral evaluation, with substantial variation across architectures.",
+    "autores": [
+      "Caleb DeLeeuw"
+    ],
+    "categorias": [
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "publicado": "2026-05-28T16:18:07Z",
+    "actualizado": "2026-05-28T16:18:07Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30162v1"
+  },
+  {
+    "id_documento": "2605.30146v1",
+    "titulo": "Holographic X-ray Phase Contrast Imaging with Partial Coherence: Uniqueness and Reconstructions from Intensity Correlations",
+    "resumen": "Holographic coherent X-ray imaging enables nanoscale imaging of biological cells and tissues, rendering both phase and absorption contrast, i.e. real and imaginary parts of the refractive index. Unlike the standard model, which assumes a perfectly coherent incident beam, we consider partial coherence characterized by a known covariance operator. In addition, we assume time-resolved intensity measurements, granting access not only to expected intensities but also to their correlations. We investigate the information content of these correlations and analytically demonstrate that, under a symmetry-breaking condition on the sample and the illumination area, both phase and absorption contrast can be uniquely recovered in both the full and the linearized models. A key challenge in numerical reconstruction is the substantial increase in data dimensionality caused by computing intensity correlations during preprocessing. We propose a novel approach that leverages a low-rank assumption on the incident beam covariance operator, bypassing explicit correlation computation while still exploiting its full information. Numerical experiments demonstrate its feasibility, yielding accurate simultaneous reconstructions of phase and absorption contrast.",
+    "autores": [
+      "Thorsten Hohage",
+      "Milad Karimi",
+      "Björn Müller"
+    ],
+    "categorias": [
+      "math.AP",
+      "math.NA"
+    ],
+    "publicado": "2026-05-28T16:06:45Z",
+    "actualizado": "2026-05-28T16:06:45Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30146v1"
+  },
+  {
+    "id_documento": "2605.30145v1",
+    "titulo": "Supermassive black hole seeds from direct collapse of CDM-curvature peaks",
+    "resumen": "We study black hole (BH) formation from the nonlinear growth and collapse of primordial perturbations during the matter-dominated era. Modelling cold dark matter (CDM) as pressureless dust, we describe the collapse in a fully nonlinear relativistic framework using the Lemaître-Tolman-Bondi (LTB) and quasi-spherical Szekeres solutions as exact perturbations of a spatially-flat Friedmann-Lemaître-Robertson-Walker (FLRW) $Λ$CDM background. At first order in relativistic scalar perturbation theory, the growing mode of any relevant quantity can be expressed in terms of the conserved gauge-invariant curvature perturbation $\\mathcal{R}_c$, which acts as a potential for the 3-curvature of hypersurfaces orthogonal to the matter 4-velocity. We use this result to express the active gravitational mass and curvature functions of the LTB and Szekeres models in terms of the initial values of $\\mathcal{R}_c$ and its spatial derivatives. From these initial curvature data we derive: (i) the turn-around, collapse, and apparent-horizon formation times, and (ii) the regularity conditions required for BH formation. We show that sinusoidal and Gaussian profiles do not provide viable BH-forming channels, whereas broad compensated curvature peaks, naturally predicted by peak theory, do. We then estimate the formation times of $10^{3}-10^{6}~\\mathrm{M}_\\odot$ massive BH seeds produced by the direct collapse of primordial CDM curvature peaks, finding full BH formation at redshifts $z>5$, with core collapse beginning at $10 \\lesssim z \\lesssim 16$. Finally, we characterize the local dynamics and singularity type of the collapse (point-like, cigar-like, or pancake-like) directly from the initial comoving curvature data, clarifying the role of the initial shear in selecting the collapse end-state.",
+    "autores": [
+      "Marco Galoppo",
+      "Marco Bruni",
+      "Tomohiro Harada"
+    ],
+    "categorias": [
+      "gr-qc",
+      "astro-ph.CO",
+      "astro-ph.GA"
+    ],
+    "publicado": "2026-05-28T16:06:10Z",
+    "actualizado": "2026-05-28T16:06:10Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30145v1"
+  },
+  {
+    "id_documento": "2605.30083v1",
+    "titulo": "Future Forcing: Future-aware Training-free KV Cache Policy for Autoregressive Video Generation",
+    "resumen": "Autoregressive (AR) video generation has emerged as a promising paradigm for long-horizon video synthesis, where each frame is generated conditioned on previously generated tokens. To accelerate inference, the KV cache is used to avoid redundant recomputation across generation steps. Nevertheless, its growth with generation length introduces increasing memory and error accumulation, limiting the scalability of AR models to even longer sequences. Existing KV cache compression methods mitigate this issue by selectively retaining only video tokens deemed important. However, most existing methods assess token importance using short-horizon signals derived from the current or historical generation context, making these methods prone to overlooking tokens that appear unimportant at early steps but later become critical for future frames. In this work, we identify an important property of trained AR video models: although RoPE-modulated queries evolve across autoregressive steps, the underlying canonical pre-RoPE query distribution remains remarkably stable throughout the video generation process. This approximate stationarity implies that future query distributions are estimable from historical statistics, enabling principled future-aware cache decisions without any additional training. Building on this insight, we propose Future Forcing, a training-free future-aware KV cache policy for AR video generation. Specifically, Future Forcing first constructs a future query proxy from historical statistics, then scores KV cache tokens by their importance under this proxy, and finally merges redundant token pairs within the affine subspace induced by the future query. Extensive experiments show that Future Forcing improves long-horizon consistency under limited KV caches, achieving up to 1.49 improvement in subject consistency on VBench-Long for 60s generation over existing AR video KV cache policies.",
+    "autores": [
+      "Jiayi Luo",
+      "Qiyan Liu",
+      "Tengyang Wang",
+      "JunHao Liu",
+      "Jiayu Chen",
+      "Cong Wang",
+      "Hanxin Zhu",
+      "Chen Gao",
+      "Xiaobin Hu",
+      "Qingyun Sun",
+      "Zhibo Chen"
     ],
     "categorias": [
       "cs.CV"
     ],
-    "publicado": "2026-05-25T17:59:53Z",
-    "actualizado": "2026-05-25T17:59:53Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26115v1"
+    "publicado": "2026-05-28T15:30:04Z",
+    "actualizado": "2026-05-28T15:30:04Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.30083v1"
   },
   {
-    "id_documento": "2605.26099v1",
-    "titulo": "Language Models Need Sleep",
-    "resumen": "Transformer-based large language models are increasingly used for long-horizon tasks; however, their attention mechanism scales poorly with context length. To handle this, we study a sleep-like consolidation mechanism in which a model periodically converts recent context into persistent fast weights before clearing its key-value cache. During sleep, the model performs $N$ offline recurrent passes over the accumulated context and updates the fast weights in its state-space model (SSM) blocks through a learned local rule. During inference, this shifts extra computation to sleep while preserving the latency of wake-time prediction. We test our method on controlled synthetic tasks, including cellular automata and multi-hop graph retrieval, as well as a realistic math reasoning task, on which a regular transformer as well as SSM-attention hybrid models fail. We then show that increasing sleep duration $N$ for our models improves performance, with the largest gains on examples that require deeper reasoning.",
+    "id_documento": "2605.29999v1",
+    "titulo": "Nanoscopic Multiplexing Optical Data Storage via Chip Fabrication",
+    "resumen": "The accelerating growth of global data generation demands data storage platforms that offer high capacity, long lifespan, and low energy consumption beyond the limits of electronic memory technologies. Optical storage provides an attractive alternative. However, its density is fundamentally constrained by the optical diffraction limit and the limited scalability from the point-by-point laser writing, as well as thermal accumulation during high-speed writing. Here, we introduce a large-scale optical data storage scheme that is compatible with the progress in chip fabrication by combining electron-beam lithography (EBL) and ion implantation to deterministically encode high-density data. The approach achieves precise control of ion number and spatial distribution, enabling multi-bit grayscale encoding and wavelength division multiplexing with chip-scale patterning over millimeter areas. Wavelength-selective readout is performed using downconversion and upconversion fluorescence detection, allowing crosstalk-free retrieval of multiplexed data channels. We further develop a neural network-based super-resolution algorithm that reconstructs data beyond the diffraction limit, further increasing the effective storage density. Using this integrated framework, we achieve an optical data density of 10 Gbit/cm$^2$ with high fidelity. Our results establish a micro/nano-fabrication-compatible route to large-scale, high-density optical memory and provide a foundation for next-generation cold data optical storage technologies.",
     "autores": [
-      "Sangyun Lee",
-      "Sean McLeish",
-      "Tom Goldstein",
-      "Giulia Fanti"
+      "Junyu Guan",
+      "Quanshen Shen",
+      "Bowen Tong",
+      "Hanzhi Wang",
+      "Zeyu Gao",
+      "Hanyu Zhang",
+      "Jingyang Zhou",
+      "Zihua Chai",
+      "Dong Liu",
+      "Ya Wang",
+      "Kangwei Xia"
     ],
     "categorias": [
-      "cs.CL",
-      "cs.AI"
+      "physics.optics"
     ],
-    "publicado": "2026-05-25T17:55:39Z",
-    "actualizado": "2026-05-25T17:55:39Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26099v1"
+    "publicado": "2026-05-28T14:28:37Z",
+    "actualizado": "2026-05-28T14:28:37Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29999v1"
   },
   {
-    "id_documento": "2605.26083v1",
-    "titulo": "Characterizing emergent multi-scale dynamics in colloidal nanoparticle gels",
-    "resumen": "Colloidal gels assembled from nanoparticles (NPs) are a versatile class of soft network-based materials capable of rich dynamic, mechanical, and even optical or magnetic responses to stimuli. Understanding how their hierarchically organized processes relate to macroscopic network properties remains a broad and unresolved problem in soft matter physics. The mechanisms of gel formation can depend sensitively on the pathway and the nature of NP interactions, thus far preventing a unified theoretical bridge between nanoscopic interactions and structural evolution and network dynamics. Indirect measurement of dynamics using light-scattering techniques provides an experimental means to quantify underlying particle and network motion. X-ray photon correlation spectroscopy (XPCS) has emerged as a powerful tool for probing nanoscopic motion in nanoparticle gels, but alone cannot resolve the full spatiotemporal spectrum of dynamics that drive gelation, aging, and network mechanical properties. While in situ rheo-XPCS enables simultaneous probing of nanoscale and bulk mechanical responses, complementary light scattering, microscopy, or simulations can extend spatiotemporal characterization and, consequently, understanding of NP gel network physics. Implementing a modular model platform with tunable primary nanoparticle features allows systematic variation of nanoscopic characteristics that drive emergent gel responses and inform the development of theoretical models for a wide range of soft, dynamic, nanostructured materials. The rapid expansion of XPCS capabilities at fourth-generation light sources, combined with complementary tools and robust model systems, positions the field to move beyond descriptive fundamental studies toward the design of nanoparticle gels with adaptive and programmable behaviors.",
+    "id_documento": "2605.29967v1",
+    "titulo": "Synergistic approach to probing the dynamics and mechanics of patchy soft matter",
+    "resumen": "Tailoring microscopic details to tune bulk rheology is a key paradigm in soft matter physics, yet the vast parameter space associated with constituent interactions precludes a fully systematic approach. To address this, we have designed a synergistic strategy to explore the parameter space that comprises simulations, experimental rheology, and machine learning. As a case study, we choose DNA-based self-assembled fluids whose viscoelastic response can be fine-tuned by manipulating the base sequencing of the constituent nucleic acid nanostars. We use coarse-grained simulations, benchmarked against experimental data, to obtain the rheology of the DNA fluids, which feeds forward to a framework of Gaussian Process Regression and active learning. The latter is then used to explore the rheological design space with high predictive precision. The pipeline is designed to be deployed iteratively for the rational design and accelerated discovery of generic soft matter suspensions.",
     "autores": [
-      "William D. Brackett",
-      "Zachary M. Sherman",
-      "Felix Lehmkühler",
-      "Thomas M. Truskett",
-      "Delia J. Milliron"
+      "Md Mozakker H. Shojib",
+      "Asier C. Monasterio",
+      "Emanuele Locatelli",
+      "Pascal Friederich",
+      "Christopher Ness",
+      "Iliya D. Stoev"
     ],
     "categorias": [
       "cond-mat.soft",
-      "cond-mat.mes-hall",
       "cond-mat.mtrl-sci",
+      "physics.bio-ph",
+      "physics.comp-ph"
+    ],
+    "publicado": "2026-05-28T14:07:15Z",
+    "actualizado": "2026-05-28T14:07:15Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29967v1"
+  },
+  {
+    "id_documento": "2605.29958v1",
+    "titulo": "Lattice Brownian bees with cooperative reproduction: steady states, collapse, and spreading",
+    "resumen": "We extend the ``Brownian bees'' model of Berestycki et al. (2021, 2022) to cooperative reproduction, $kA\\to(k{+}1)A$, of a population of $N$ symmetric random walkers with removal, at each birth event, of the particle farthest from the origin. Working in the limit $N\\to\\infty$, we formulate a hydrodynamic free-boundary problem for this model. Using this formalism, we determine steady state population densities for all~$k$ and prove their linear stability for $k\\le 2$ and instability for $k\\ge 4$. In the marginal case $k=3$, there is a whole continuous family of steady states at a single, critical ratio of the reproduction and diffusion rates. Above criticality the population undergoes an asymptotically self-similar finite-time collapse to the origin. Below the criticality the population spreads diffusively, but the reproduction remains quantitatively relevant. For $k\\ge 4$, the unstable steady state separates regimes of a finite-time collapse and a diffusive spreading. Here the collapse dynamics is asymptotically self-similar, and the population density exhibits a scale separation requiring a matched-asymptotic description. Our analytical predictions are confirmed by numerical solutions of the hydrodynamic free-boundary problem and by Monte Carlo simulations of the original microscopic model.",
+    "autores": [
+      "Ohad Vilk",
+      "Baruch Meerson"
+    ],
+    "categorias": [
+      "q-bio.PE",
+      "cond-mat.stat-mech",
+      "math.PR",
+      "nlin.PS"
+    ],
+    "publicado": "2026-05-28T14:01:10Z",
+    "actualizado": "2026-05-28T14:01:10Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29958v1"
+  },
+  {
+    "id_documento": "2605.29957v1",
+    "titulo": "Universal thermokinetic decomposition of short-time information fluctuations",
+    "resumen": "Biological, artificial, and physical systems dissipate energy to accurately transmit information. While tools of information theory have been used to characterize information-processing capabilities, how reliably this information is acquired along individual trajectories, and which aspects require a thermodynamic cost, is an open question. In this work, we focus on the stochastic predictability of an arbitrary Langevin dynamics, defined as the pointwise mutual information between the current and future states of a system. We show that the fluctuations of predictability obey a universal thermokinetic decomposition at short times, which reveals that information fluctuations are suppressed by energy dissipation and become stronger with increased dynamical activity. Remarkably, we find that the average predictability, i.e., the short-time mutual information, does not carry any dependence on the underlying thermodynamic and kinetic features. Thus, the role of dissipation at short times is not to enhance information, but to reduce its fluctuations. Such dissipative control is effective only when instantiated by nonlinear operations. Moreover, energy consumption governs short- and long-time precision in stochastic oscillators through structurally different mechanisms that can be independently tuned. Our decomposition offers a fundamental thermodynamic basis for understanding the reliability of information transmission in nonequilibrium systems, the constraints on precision in biological systems, and the design of energy-limited control strategies.",
+    "autores": [
+      "Giorgio Nicoletti",
+      "Daniel M. Busiello"
+    ],
+    "categorias": [
       "cond-mat.stat-mech"
     ],
-    "publicado": "2026-05-25T17:47:52Z",
-    "actualizado": "2026-05-25T17:47:52Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26083v1"
+    "publicado": "2026-05-28T14:00:52Z",
+    "actualizado": "2026-05-28T14:00:52Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29957v1"
   },
   {
-    "id_documento": "2605.26081v1",
-    "titulo": "VeriTrace: Evolving Mental Models for Deep Research Agents",
-    "resumen": "Deep research agents face vast, interdependent, and pervasively uncertain information. Existing systems explore what evolving intermediate representations should look like, but leave their evolution to the LLM's implicit reasoning. Without explicit regulation, the intermediate layer is easily contaminated by mixed-quality information and propagates errors along its dependencies, so model scale often ends up substituting for absent regulation. We argue that an agent's mental model should instead evolve through explicit feedback that continuously aligns task understanding with reality, and identify three regulatory loops: interpretive update, deviation feedback, and schema revision. We realise this in VeriTrace, a cognitive-graph framework that explicitly implements the three loops. Using matched Qwen3.5-27B backbones, VeriTrace improves over the strongest matched baseline by 4.22 pp on DeepResearch Bench (DRB) Insight (1.49 pp Overall) and by 5.9 pp Overall win rate on DeepConsult. With Config-DeepSeek, it achieves the strongest reproducible open-source result on DRB.",
+    "id_documento": "2605.29932v1",
+    "titulo": "Treatment-Conditioned Diffusion for Forecasting Neurodegenerative Disease Progression",
+    "resumen": "Forecasting the progression of neurodegenerative diseases, such as Parkinson's disease, is essential for effective long-term planning and personalized therapeutic intervention. Existing systems typically produce scalar clinical scores that ignore the rich structure of longitudinal neuroimaging, while traditional generative approaches suffer from a loss of anatomical details and blurring subtle progression patterns. To address this, we introduce a novel treatment-conditioned diffusion framework that predicts high-fidelity future brain states by conditioning the generative process on patients' screening DaTscan images and levodopa equivalent daily dose over one year. The pipeline uses a Transformer-based encoder to represent non-linear, time-dependent pharmacological dynamics and optimizes generation through a multi-weight region-of-interest mask that focuses on biologically critical areas. Experimental evaluation shows that our framework maintains sharp anatomical boundaries and significantly improves clinical fidelity relative to the baseline, achieving 14.0% lower MSE, 7.2% lower MAE, and 4.9% higher SSIM.",
     "autores": [
-      "Haolang Zhao",
-      "Yunbo Long",
-      "Lukas Beckenbauer",
-      "Alexandra Brintrup"
+      "Danylo Boiko",
+      "Viktoriia Mishkurova"
     ],
     "categorias": [
-      "cs.AI"
+      "cs.LG",
+      "cs.CV"
     ],
-    "publicado": "2026-05-25T17:46:57Z",
-    "actualizado": "2026-05-25T17:46:57Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26081v1"
+    "publicado": "2026-05-28T13:44:56Z",
+    "actualizado": "2026-05-28T13:44:56Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29932v1"
   },
   {
-    "id_documento": "2605.26059v1",
-    "titulo": "Accelerating Bayesian inverse design in computational fluid dynamics using neural operators",
-    "resumen": "Bayesian inverse design provides a principled framework for inferring aerodynamic geometries from sparse flow observations while quantifying uncertainty. However, its practical use in computational fluid dynamics (CFD) is severely limited by the cost of repeated high-fidelity simulations required for gradient-based Markov chain Monte Carlo (MCMC) sampling. While surrogate models are commonly proposed to reduce this cost, their effect on posterior geometry and uncertainty, especially for shock-dominated flows, remains poorly understood. In this work, we demonstrate that neural operator surrogates can be embedded directly within the MCMC inference loop while preserving posterior structure. Using a fully Bayesian inverse formulation of quasi-one-dimensional nozzle flow, we demonstrate that geometry parameterization plays a decisive role in identifiability and posterior conditioning, with cubic B-splines yielding stable and physically meaningful uncertainty estimates. Building on this formulation, a Deep Operator Network trained on CFD-generated data is substituted for the CFD solver within a No-U-Turn Sampler, while keeping the likelihood model, priors, and sampling configuration unchanged. Across sparse to fully observed regimes, surrogate-based inference reproduces the posterior geometry and uncertainty trends of the CFD reference. As a result of surrogate integration, total inference time is reduced to under one second, corresponding to a speedup exceeding three orders of magnitude. In addition, a direct inverse neural operator is examined as a deterministic alternative for inverse design, enabling single-shot geometry reconstruction without posterior sampling. These results demonstrate that neural operator-accelerated Bayesian inference enables practical, uncertainty-aware inverse design workflows for aerodynamic applications.",
+    "id_documento": "2605.29907v1",
+    "titulo": "Stochastic network epidemic model and particle filter: General framework and application to influenza in Japan",
+    "resumen": "Parameter inference and state estimation in stochastic and partially observed biological systems remain major problems in mathematical biology. In this work, we introduce a two-dimensional lattice graph model for the spread of infectious diseases. Estimating states and parameters in graph-based stochastic epidemic systems is particularly challenging because of randomness and incomplete observations. To address these issues, we propose a particle filter based data assimilation framework for the sequential estimation of both model states and unknown parameters. Two methodologies are developed: one based on the number of infected agents and another based on partial spatial location's information of infected agents on a two-dimensional lattice. The performance of the two methods are firstly analyzed and validated using synthetic data, and the first method is then applied to influenza data collected from different prefectures in Japan between July 2024 and December 2025. One-week-ahead forecasting simulations are also performed using current weekly data. The findings highlight the effectiveness of the proposed PF framework for real-time epidemic monitoring, forecasting, and adaptive public health decision-making.",
     "autores": [
-      "Bipin Tiwari",
-      "Omer San"
+      "Ihtisham Ul Haq",
+      "Serge Richard"
     ],
     "categorias": [
-      "physics.flu-dyn",
-      "cs.LG"
+      "q-bio.QM"
     ],
-    "publicado": "2026-05-25T17:18:18Z",
-    "actualizado": "2026-05-25T17:18:18Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26059v1"
+    "publicado": "2026-05-28T13:25:31Z",
+    "actualizado": "2026-05-28T13:25:31Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29907v1"
   },
   {
-    "id_documento": "2605.26050v1",
-    "titulo": "Early- and Late-Time Modifications to $Λ$CDM: Implications for the Hubble Tension",
-    "resumen": "We investigate an extension of $Λ$CDM in which a fraction of cold Dark Matter (DM) decays into invisible dark radiation (DR) around the radiation-matter equality epoch, together with a non-standard dark energy (DE) equation of state characterized by $w_0$. The decaying DM component modifies the early expansion history and reduces the sound horizon at baryon drag, while the DE alters the expansion rate at the late times. A comprehensive analysis combining \\texttt{Planck 2018+ACT DR6+DESI DR2+CMB lensing} datasets has been carried out to explore the viability of this framework in addressing the $H_0$ tension. This model yields a Hubble constant of $H_0 = 69.83 \\pm 0.98~\\mathrm{km\\,s^{-1}\\,Mpc^{-1}}$, reducing the discrepancy with SH0ES measurement to ${\\sim}2.2σ$ and local distance network measurement (H0DN) to ${\\sim}2.9σ$. Further, considering \\texttt{SH0ES} and \\texttt{Pantheon+}, the inferred value of the Hubble constant becomes $H_0 = 70.20 \\pm 0.66~\\mathrm{km\\,s^{-1}\\,Mpc^{-1}}$. The Bayesian evidence suggests that this framework offers a fit to the relevant cosmological datasets at a statistically similar level as $Λ$CDM. It is observed that correlated early- and late-time modifications to the cosmological expansion history provide a more effective route to reducing the $H_0$ tension than either class of modification alone.",
+    "id_documento": "2605.29876v1",
+    "titulo": "Exploring the High-Redshift 21-cm Signal via Self-Consistent Simulations using Artificial Neural Network Emulation",
+    "resumen": "We present a novel, self-consistent, semi-numeric Cosmic Dawn (CD) simulation in which small-scale star formation (SF) is calibrated to the \\emph{AEOS} and \\emph{Renaissance} hydrodynamic simulations. SF proceeds within dark matter (DM) halos via neural network emulation while considering large-scale fluctuations in density and feedback. We translate the resulting 3D distribution of galaxies into predictions for the 21-cm brightness temperature, \\Tb, and power spectrum, \\PS. We simulate several unique realizations to study the impact of varying astrophysics on \\Tb, finding that more efficient Population II (PopII) SF largely yields stronger Lyman-$α$ coupling, resulting in a shallower and wider absorption trough. However, we find that PopII SF dominates \\PS\\ at $z \\lesssim 20$ and on smaller scales at intermediate redshifts ($k \\gtrsim 0.2\\ \\mathrm{Mpc^{-1}}$ at $z \\simeq 34-20$) while Population III (PopIII) SF dominates \\PS\\ at $z\\gtrsim34$ and on larger scales at intermediate redshifts. Compared with previous works, we find that the combination of hydrodynamic SF calibration, a critical halo mass for SF considering \\Htwo\\ self-shielding, and stochastic DM halo merger histories results in both earlier SF and higher SF rates across CD. Further, we find that the delay period separating PopIII and PopII SF (\\tdelay) significantly impacts \\Tb, and that one must include DM halo merger histories to properly account for this transition. Finally, we find our fiducial \\Tb\\ to be detectable at $z\\lesssim25$ with 1080 hours of HERA observations under moderate foreground assumptions, and the lack of such a detection at $z \\gtrsim 20$ would suggest \\tdelay\\ $\\gtrsim$ 30 Myr.",
     "autores": [
-      "Rahul Dhyani",
-      "Purba Mukherjee",
-      "Arindam Chatterjee",
-      "Anjan A Sen"
+      "Colton R. Feathers",
+      "Eli Visbal",
+      "Steven Murray",
+      "Ryan Hazlett",
+      "Yin-Zhe Ma"
     ],
     "categorias": [
       "astro-ph.CO",
-      "hep-ph"
+      "astro-ph.GA"
     ],
-    "publicado": "2026-05-25T17:12:16Z",
-    "actualizado": "2026-05-25T17:12:16Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26050v1"
+    "publicado": "2026-05-28T12:59:41Z",
+    "actualizado": "2026-05-28T12:59:41Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29876v1"
   },
   {
-    "id_documento": "2605.26044v1",
-    "titulo": "Magnetic ground state of a prototype quasicrystal approximant: a candidate for octahedral spin ice physics",
-    "resumen": "Magnetic ordering in quasicrystals has recently emerged as a fertile ground for discovering unconventional magnetic states beyond the framework of periodic crystals. However, elucidating the microscopic origin of such states remains challenging due to the intrinsic aperiodicity of quasicrystals. Here, we address this issue by investigating the prototypical Tsai-type quasicrystal approximant Cd6Tb, which preserves the essential local geometry and connectivity of icosahedral quasicrystals while allowing detailed structural and magnetic characterization due to its translational periodicity. Using neutron diffraction measurements, we find a noncoplanar multi-k magnetic ground state composed of Ising-like Tb moments arranged on a network of corner-sharing octahedra, the ingredients required to host octahedral spin-ice physics. Remarkably, only one third of the Tb moments develop long-range magnetic order, whereas the remaining moments display strongly reduced static order accompanied by persistent spin dynamics on microsecond timescales, as evidenced by muon spin rotation. This coexistence of ordered and fluctuating moments constitutes a potential realization of magnetic fragmentation - a key prediction of octahedral spin-ice physics - in a quasicrystal-related material.",
+    "id_documento": "2605.29871v1",
+    "titulo": "Enhanced Density Fluctuations Near a Disordered Chiral Topological Transition",
+    "resumen": "The universal statistics of density fluctuations of localized quantum states may offer unprecedented opportunities to probe and understand quantum transport in connection with dimensionality, coherence, symmetry and disorder. To date, the possible role of topological phase transitions in the fluctuation statistics is not studied yet. Using a Su-Schrieffer-Heeger chain subject to off-diagonal disorder (so that chiral symmetry is preserved), this work investigates how a disorder driven topological phase transition impacts on the spatial fluctuations of the logarithmic wave-packet density $\\ln P(r)$ at distance $r$ from the initial excitation. Away from the transition, in both topological and trivial localized phases, the standard deviation follows the conventional one-dimensional scaling $σ[\\ln P(r)]\\sim r^θ$ with $θ\\simeq 1/2$. Near the transition, however, the fluctuation growth is enhanced: the fitted exponent $θ$ increases above $1/2$ in a nonmonotonic manner before returning close to $1/2$ at criticality. We interpret this behavior from the energy-resolved density of states and localization length. Near the transition, several energy sectors carry appreciable spectral weight and exhibit competitive decay rates, preventing a single localization scale from dominating the accessible wave-packet tail and thereby enhancing the fluctuations of $\\ln P(r)$. Our results establish wave-packet fluctuation statistics as a dynamical diagnostic of disordered chiral topological transitions and motivate broader studies of fluctuation phenomena in disordered topological quantum systems.",
     "autores": [
-      "Leonie Woodland",
-      "Farid Labib",
-      "Dmitry Khalyavin",
-      "Pascal Manuel",
-      "Fabio Orlandi",
-      "Hubertus Luetkens",
-      "Ryuji Tamura"
+      "Hai-Tao Ding",
+      "Sen Mu",
+      "Leong-Chuan Kwek",
+      "Gabriel Lemarié",
+      "Jiangbin Gong"
     ],
     "categorias": [
-      "cond-mat.str-el",
-      "cond-mat.mtrl-sci"
+      "cond-mat.dis-nn",
+      "quant-ph"
     ],
-    "publicado": "2026-05-25T17:08:39Z",
-    "actualizado": "2026-05-25T17:08:39Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26044v1"
+    "publicado": "2026-05-28T12:55:33Z",
+    "actualizado": "2026-05-28T12:55:33Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29871v1"
   },
   {
-    "id_documento": "2605.26042v1",
-    "titulo": "Alt-CC-PINN: An Alternating Optimization Framework with Implicit Neural Representation for Microwave Inverse Scattering Imaging",
-    "resumen": "Microwave inverse scattering imaging (MISI) is a crucial computational technique in microwave nondestructive evaluation and near-field microwave sensing systems. However, quantitative reconstruction of high-contrast targets remains a formidable challenge due to severe multiple scattering effects and the inherent ill-posedness of electromagnetic inverse problems. To overcome this fundamental bottleneck in computational microwave imaging, this paper proposes an alternating optimization framework based on cross-correlated physics-informed neural network (Alt-CC-PINN). This architecture deeply decouples the evolution of the microwave physical field from the neural-network-based dielectric parameter inference, replacing traditional joint optimization with a hybrid alternating engine. Specifically, the method employs an analytical Polak-Ribière conjugate gradient (PR-CG) algorithm driven by a cross-correlated loss to optimally update the contrast sources, and deploys batched zero-padded 2D-FFT to ensure high computational efficiency. Subsequently, a deep learning optimizer is utilized to update the continuous neural representation. Extensive validations based on simulated and measured data demonstrate that Alt-CC-PINN effectively overcomes the local minima problem in high-contrast and low-signal-to-noise-ratio (SNR) environments. It exhibits superior reconstruction fidelity and robustness under the frequency-hopping probing strategy, providing a powerful and reliable computational electromagnetic solver for practical microwave imaging systems.",
+    "id_documento": "2605.29842v1",
+    "titulo": "Microfluidic Oscillatory Rheology of Transported Soft Particles",
+    "resumen": "Microfluidic channels have emerged as useful tools to control dynamic forcing on transported microscale objects, as encountered in emulsions, biological flows, and other soft matter systems. Tailored channel designs enable precise interfacial and bulk rheological measurements of complex materials over a wide range of forcing timescales. After a brief overview of recent experiments illustrating these techniques, we discuss perspectives for future research in this direction, including the study of lubrication films in highly confined droplets, the measurement of fast relaxation dynamics of complex interfaces, and the high-throughput rheological characterization of microscopic soft matter systems ranging from single macromolecules to cells.",
     "autores": [
-      "Shilong Sun"
+      "Matteo Milani",
+      "Joshua D. McGraw",
+      "Anke Lindner Stefano Aime"
     ],
     "categorias": [
-      "eess.SP"
+      "cond-mat.soft",
+      "physics.flu-dyn"
     ],
-    "publicado": "2026-05-25T17:08:09Z",
-    "actualizado": "2026-05-25T17:08:09Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26042v1"
+    "publicado": "2026-05-28T12:24:05Z",
+    "actualizado": "2026-05-28T12:24:05Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29842v1"
   },
   {
-    "id_documento": "2605.26040v1",
-    "titulo": "L2IR: Revealing Latent Intent in Graph Fraud Detection",
-    "resumen": "Graph fraud detection has long depended on Graph Neural Networks (GNNs) to propagate and aggregate information across relational data. A critical obstacle in practice, however, is that fraudsters frequently disguise themselves by forging numerous connections with benign users, causing fraud signals to be progressively diluted during neighborhood aggregation and undermining detection reliability. While recent efforts have used Large Language Models (LLMs) to provide rich semantic cues for fraud detection, the underlying intent behind suspicious connections remains insufficiently explored. Compounding this issue, the scarcity of annotated fraud samples makes it difficult to train detectors that remain robust under heavy camouflage. To address these gaps, we propose L2IR, an LLM-driven Latent Intent Revealing framework for graph fraud detection. By uncovering latent intent from both user behaviors and suspicious connections, L2IR extracts intent-aware representations from raw behavioral traces and reasons about the true purpose behind individual connections, effectively distinguishing supportive links from misleading ones. It further incorporates adaptive self-training to enhance robustness under limited supervision. Evaluations on two real-world datasets characterized by pervasive camouflage demonstrate that L2IR surpasses strong baselines and can function as a plug-in enhancement for a range of GNN-based detectors, improving AUPRC by up to 8.27%.",
+    "id_documento": "2605.29830v1",
+    "titulo": "A Multi-factorial Innovation Model with Feature Interaction",
+    "resumen": "We introduce an Indian-buffet-type model for multi-factorial innovation in which each arriving agent may exhibit both previously observed and new features. The number of new features follows a power-law behavior, while the probability of selecting an old feature combines self-reinforcement, depending on the feature-specific popularity, with a mean-field interaction term depending on the average popularity of all observed features. The model is governed by the usual innovation parameters (mass, discount and concentration), together with two additional parameters: one controlling the strength of reinforcement against a forcing input toward zero, and one regulating the intensity of feature interaction. Although the growth of the total number of distinct observed features has the same behavior as in the three-parameter Indian buffet process, the interaction mechanism produces new asymptotic regimes. For aggregate quantities, including the predictive mean, the averaged number of features per agent, the mean inclusion probability, and the mean feature popularity, the phase transition is determined by the comparison between the discount parameter and the weight of the forcing input. For feature-specific quantities, a further transition appears according to the comparison between the interaction level and a critical threshold. In particular, high interaction leads to an asymptotic synchronization of feature-specific inclusion probabilities. We establish strong laws and second-order asymptotic results, including central limit theorems in regimes where martingale fluctuations compete with deterministic or random terms. The analysis relies on novel general results for recursive stochastic dynamics, which may be useful beyond the present framework.",
     "autores": [
-      "Jinsheng Guo",
-      "Zhenhao Weng",
-      "Yibo Liu",
-      "Yan Qiao",
-      "Meng Li"
+      "Giacomo Aletti",
+      "Irene Crimaldi",
+      "Andrea Ghiglietti"
+    ],
+    "categorias": [
+      "math.ST",
+      "math.PR",
+      "stat.AP"
+    ],
+    "publicado": "2026-05-28T12:09:55Z",
+    "actualizado": "2026-05-28T12:09:55Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29830v1"
+  },
+  {
+    "id_documento": "2605.29779v1",
+    "titulo": "Strong Solutions for the Stochastic Cahn-Hilliard Convective Brinkman-Forchheimer Model for Tumor Growth",
+    "resumen": "In this work, we analyze a diffuse-interface model for tumor growth, subject to multiplicative white noises, posed on a bounded domain $\\mathcal{O} \\subset \\mathbb{R}^d$, $d=2,3$. The model couples a stochastic incompressible convective Brinkman-Forchheimer (CBF) equation or Navier-Stokes equation with damping $η|v|^{r-1}v $ for the averaged velocity field $v$, to a Cahn-Hilliard (CH) equation for the phase field variable $φ$ and to a stochastic reaction-diffusion equation governing the nutrient concentration $σ$. We establish the existence of local strong solutions , for $ r \\geq 1 $ in $d=2$ and $ r \\in [1,3] $ in $d=3$. We prove the weak-strong uniqueness holds in both $d = 2, 3$. In addition, for $d = 2$, the uniqueness of weak solutions is obtained for all $η,ν> 0$, and $r \\geq 1$, while it holds in $d = 3$ for $r \\geq 3$ and $ην\\geq 1$ when $r = 3$ under an assumption on $σ$. Moreover, for $d=2$ and $r \\in [1,3]$, we obtain that the strong solution exists globally in time.",
+    "autores": [
+      "Kalpana Rawat",
+      "Kumarasamy Sakthivel"
+    ],
+    "categorias": [
+      "math.AP",
+      "math.PR"
+    ],
+    "publicado": "2026-05-28T11:26:31Z",
+    "actualizado": "2026-05-28T11:26:31Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29779v1"
+  },
+  {
+    "id_documento": "2605.29768v1",
+    "titulo": "From XXLTraffic to EvoXXLTraffic: Scaling Traffic Forecasting to Sensor-Evolving Networks",
+    "resumen": "Existing traffic forecasting benchmarks assume a fixed sensor set, but real road-sensor networks grow continuously as the road network changes year by year. We introduce the XXLTraffic dataset family, which spans up to 27 years of California PeMS and Transport for NSW data. The fixed-sensor subsets of XXLTraffic support extremely long forecasting with multi-year gaps and standard hourly / daily long-horizon forecasting. We extend it to EvoXXLTraffic, a sensor-evolving reorganization that exposes per-year active sensors, yearly traffic-flow matrices, and yearly graph snapshots across nine PeMS districts, with growth ratios ranging from +305% to over +10,000%. We define a yearly streaming forecasting protocol on EvoXXLTraffic in which each calendar year is a continual task, and benchmark a wide range of representative baselines drawn from static spatio-temporal GNNs, naïve online schemes, evolving-graph continual methods, and retrieval / test-time methods. We find that our ultra-large evolutionary dataset better reflects the real world, and many state-of-the-art (SOTA) results no longer work. Our dataset complements existing benchmarks by enabling more realistic forecasting under ultra-long evolutionary road networks.",
+    "autores": [
+      "Du Yin",
+      "Hao Xue",
+      "Arian Prabowo",
+      "Shuang Ao",
+      "Flora Salim"
     ],
     "categorias": [
       "cs.AI"
     ],
-    "publicado": "2026-05-25T17:06:13Z",
-    "actualizado": "2026-05-25T17:06:13Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26040v1"
+    "publicado": "2026-05-28T11:13:34Z",
+    "actualizado": "2026-05-28T11:13:34Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29768v1"
   },
   {
-    "id_documento": "2605.26037v1",
-    "titulo": "Peak-Then-Collapse and the Four Interface Channels of Knowledge-Graph Tool Use",
-    "resumen": "We test the standard RLVR tool-use recipe -- GRPO on Qwen2.5-7B-Instruct -- on a deliberately minimal knowledge-graph tool API: four Freebase navigation verbs over Complex WebQuestions. Under a self-verifiable retrieval reward, the policy's tool-grounded answer rate climbs from $3.8\\%$ to $9.6\\%$ over 250 steps, then collapses to $0\\%$ within a single 50-step window -- a \\emph{peak-then-collapse} pattern replicated across four seeds. Across seven reward designs, we find four recurring failure modes: adding denser or more targeted proxy rewards shifts the failure mode rather than eliminating it. We argue that a key difference from Python interpreters, web search, and JSON APIs is interface feedback: their failures often leak natural-language signal the model saw in pretraining. A Python traceback names the failing line; an empty Freebase result \\texttt{[]} does not. Stripping away that surface exposes a degradation regime that same-family reward redesigns do not fix. A direct oracle ablation rules out relation selection: injecting gold relations at every retrieval call lifts exact-match accuracy by only $+0.20$~pp, and $95.4\\%$ of retrieval-dependent errors are retrieval-composition failures rather than answer-extraction failures. As a mitigation, one-iteration self-distillation reaches $40.0\\%$ EM at 7B and is capacity-invariant: doubling capacity to 14B improves EM by only $0.25$~pp, and initialization barely matters -- the ceiling appears interface-bound within the 7B--14B range tested.",
+    "id_documento": "2605.29750v1",
+    "titulo": "Elliptic Boundary Value Problems and Partial Group Actions",
+    "resumen": "We consider a smooth compact manifold with boundary, $M$, embedded in a smooth manifold of the same dimension on which an amenable group $Γ$ acts by isometries. We do not assume $M$ to be invariant under $Γ$. This results in a {\\em partial action} of $Γ$ on $M^\\circ$: For $g\\in Γ$ we let $M^\\circ_g = g(M^\\circ)\\cap M^\\circ$ and obtain diffeomorphisms $g:M^\\circ_{g^{-1}} \\to M^\\circ_g$.\n  We assume that any two images of $\\partial M$ under $ Γ$ either coincide or are disjoint and that only finitely many lie in $M$. The spherical blow-up of these images of $\\partial M$ in $M$ yields a manifold $Y$ with boundary consisting of finitely many components. Moreover, $Y$ inherits a partial action of~$Γ$.\n  We can then define the $C^*$-algebra $\\mathcal A=\\overline{Ψ_Γ(Y,\\partial Y)}$ of operators on $L^2(Y)\\oplus L^2(\\partial Y)$, generated by the algebra $Ψ(Y,\\partial Y)$ of operators of order and type zero in Boutet de Monvel's calculus on $Y$ and partial isometries associated with the partial action. Denote by $Σ=\\overline{Ψ(Y,\\partial Y)}/\\mathbb K$ its symbol space. If the partial action of $Γ$ on Prim$(Σ)$ is topologically free, we find a criterion for the Fredholm property of the operators in $\\overline{Ψ_Γ(Y,\\partial Y)}$.\n  Moreover, we obtain the classification of the elliptic elements in $\\overline{Ψ_Γ(Y,\\partial Y)}$ modulo stable homotopies: For $\\mathcal A_0= C(Y\\sqcup \\partial Y)\\rtimesΓ$ $${\\rm Ell}(\\mathcal A_0,\\mathcal A)\\cong K_0(C_0(T^*Y^\\circ)\\rtimesΓ)\\oplus K_0(C(\\partial Y)\\rtimes Γ).$$ If $Γ$ is finitely generated and of polynomial growth, then the elements associated with the second summand do not contribute to the index.",
     "autores": [
-      "Tianda Sun",
-      "Dimitar Kazakov"
+      "Eske Ewert",
+      "Anton Yu. Savin",
+      "Elmar Schrohe"
     ],
     "categorias": [
-      "cs.CL"
+      "math.OA",
+      "math.AP",
+      "math.FA"
     ],
-    "publicado": "2026-05-25T17:05:35Z",
-    "actualizado": "2026-05-25T17:05:35Z",
-    "url_pdf": "https://arxiv.org/pdf/2605.26037v1"
+    "publicado": "2026-05-28T10:46:55Z",
+    "actualizado": "2026-05-28T10:46:55Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29750v1"
+  },
+  {
+    "id_documento": "2605.29748v1",
+    "titulo": "Instance-dependent Stochastic Lipschitz bandit",
+    "resumen": "We study the Lipschitz bandit problem, where a learner sequentially maximizes an unknown Lipschitz function $f$ over a domain $\\mathcal{X} \\subset [0,1]^d$ using noisy pointwise evaluations. Existing regret bounds are either worst-case, scaling as $\\tildeΘ \\left ( T^{d+1/d+2}\\right )$, or adaptive via the zooming dimension $d_z$, yielding $\\tildeΘ \\left ( T^{d_z+1/d_z+2}\\right )$. However, such zooming-based guarantees are only partially instance-dependent, as they depend solely on the asymptotic growth of near-optimal level sets and fail to capture finer structural properties of $f$. We provide an analysis and an algorithm that characterizes the regret through integrals of the suboptimality gap of $f$ over its level sets. This yields regret bounds that adapt to the local growth of level sets, rather than only their asymptotic behavior. As a corollary, when the set of maximizers has dimension $d^\\star>0$, we obtain improved adaptive rates of order $\\tilde{\\mathcal{O}} \\left ( T^{d_z+1 / \\max(d_z,d^\\star)+2}\\right )$ strictly improving over classical zooming bounds in this regime. Finally, we extend our analysis to the full-information setting (Lipschitz experts) and show how some of the regularity assumptions can be relaxed.",
+    "autores": [
+      "Marius Potfer",
+      "Vianney Perchet"
+    ],
+    "categorias": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "publicado": "2026-05-28T10:46:30Z",
+    "actualizado": "2026-05-28T10:46:30Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29748v1"
+  },
+  {
+    "id_documento": "2605.29686v1",
+    "titulo": "Boolean Algebra -- Driven Sepsis Diagnosis",
+    "resumen": "Sepsis remains a diagnostic challenge due to its heterogeneous molecular signatures and complex immune responses. In this study, we develop a logical data analysis framework based on Boolean polynomial rings. This method constructs an ideal $\\mathcal{I}$ of selection criteria that isolate empty subsets of previously analyzed patient data. This approach enables the derivation of interpretable classification rules based on biomarker profiles. We demonstrate that logical data analysis identifies distinct logical patterns for positive and negative sepsis classification. For instance, elevated levels of GLP-1 and MyD88 are associated with septic states in our dataset, whereas high TRAIL and low MyD88 concentrations may suggest a non-septic condition. Importantly, a new way to integrate expert knowledge to filter out potential overfitting or dataset-specific artifacts is shown. Our findings highlight the utility of logics in generating transparent, biologically plausible rules for a data-based and expert-based understanding of sepsis. Moreover, we show how data analysis can benefit from algebraic structures.",
+    "autores": [
+      "Marcus Weber",
+      "Kai Kappert",
+      "Marco Reidelbach",
+      "Ambros Gleixne",
+      "Konstantin Fackeldey",
+      "Wolfgang Bauer"
+    ],
+    "categorias": [
+      "math.RA"
+    ],
+    "publicado": "2026-05-28T09:51:19Z",
+    "actualizado": "2026-05-28T09:51:19Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29686v1"
+  },
+  {
+    "id_documento": "2605.29619v1",
+    "titulo": "On a Class of Continuous Collision-Induced Breakage Equation",
+    "resumen": "In this work, we establish the existence of mass-conserving weak solutions to a nonlinear collision-induced breakage equation in which binary collisions may trigger particle breakup. The result is proved for a class of product-type collision kernels whose small-size behavior is controlled by a power-law function of the form $ω_0(x)\\le A_1\\,x^\\ell$, while no growth restriction is imposed on the large-size factor $ω_\\infty$. The qualitative behavior of the solutions depends crucially on the exponent $\\ell$ near the origin. Sublinear growth corresponding to $\\ell<\\tfrac12$ yields existence only on finite time intervals, whereas superlinear growth corresponding to $\\ell>\\tfrac12$ ensures global-in-time existence.",
+    "autores": [
+      "Mashkoor Ali"
+    ],
+    "categorias": [
+      "math.AP"
+    ],
+    "publicado": "2026-05-28T08:54:37Z",
+    "actualizado": "2026-05-28T08:54:37Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29619v1"
+  },
+  {
+    "id_documento": "2605.29518v1",
+    "titulo": "Network Optimization Aspects of Autonomous Vehicles: Challenges and Future Directions",
+    "resumen": "Global megatrends, such as urbanization, population growth, and emerging network solutions are accelerating the development of the Connected and Autonomous Vehicles (CAVs) industry. There are many truths, some misconceptions, and even some excitement about CAVs in the public's opinion. The main objective of the current article is to provide a comprehensive review, eliminate misconceptions, and outline the future of the network optimization aspects of autonomous vehicles by presenting various multidisciplinary methods, such as cooperative perception. Given our extensive experience with CAVs, we are aiming to share some of the insights and knowledge we have gained, along with relevant use-cases and experiment results.",
+    "autores": [
+      "Rudolf Krecht",
+      "Tamas Budai",
+      "Erno Horvath",
+      "Akos Kovacs",
+      "Nobert Marko",
+      "Miklos Unger"
+    ],
+    "categorias": [
+      "cs.NI",
+      "cs.AI"
+    ],
+    "publicado": "2026-05-28T07:38:29Z",
+    "actualizado": "2026-05-28T07:38:29Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29518v1"
+  },
+  {
+    "id_documento": "2605.29508v1",
+    "titulo": "Quantum Markovian Dynamics from a Double Covariance Stochastic Framework",
+    "resumen": "We develop an interacting extension of the Double Covariance Model (DCM), a stochastic subquantum framework in which macroscopic quantum dynamics emerge through coarse-graining of correlated microscopic fluctuations. Starting from local stochastic differential equations on subsystem Hilbert spaces, we derive a closed evolution equation for a coarse-grained double covariance operator using multi-scale Itô calculus and sliding-window averaging. The construction explicitly incorporates two separated temporal scales: a fast microscopic fluctuation scale governing subquantum stochastic processes and a slower macroscopic observation scale associated with coarse-grained dynamics. Within the hydrodynamic limit, where the ratio between microscopic correlation time and averaging-window scale vanishes, rapidly fluctuating corrections disappear and the effective dynamics converges to a deterministic macroscopic transport equation. We show that the emergent macroscopic dynamics has the exact Gorini-Kossakowski-Sudarshan-Lindblad (GKSL) form: coherent Hamiltonian evolution arises from deterministic subquantum flow, while dissipative channels emerge from quadratic noise correlations. The framework further demonstrates how non-separable interaction Hamiltonians can arise from strictly local, state-dependent stochastic feedback fields. In the fluctuation-free limit, the model reduces naturally to the standard von Neumann equation, providing a unified stochastic foundation for both open and closed quantum dynamics.",
+    "autores": [
+      "Andrei Khrennikov"
+    ],
+    "categorias": [
+      "quant-ph",
+      "math.DS",
+      "math.PR"
+    ],
+    "publicado": "2026-05-28T07:30:55Z",
+    "actualizado": "2026-05-28T07:30:55Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29508v1"
+  },
+  {
+    "id_documento": "2605.29386v1",
+    "titulo": "Polynomial contractions of $\\mathbb C^d$ and degree growth",
+    "resumen": "We give a simple example of a polynomial contraction automorphism of $\\mathbb C^d$, $ d\\ge 3 $, with unbounded degree growth. Combined with Poincaré-Dulac theorem it provides an algebraic automorphism of $\\mathbb C^d$, $ d\\ge 3 $, which is holomorphically but not algebraically linearizable.",
+    "autores": [
+      "Dmitrii Korshunov"
+    ],
+    "categorias": [
+      "math.CV",
+      "math.AG",
+      "math.DS"
+    ],
+    "publicado": "2026-05-28T05:40:06Z",
+    "actualizado": "2026-05-28T05:40:06Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29386v1"
+  },
+  {
+    "id_documento": "2605.29363v1",
+    "titulo": "Sub-luminous Type IIP SN 2024abfl as a result of a significantly low energy Fe-core collapse",
+    "resumen": "We present extensive, well-sampled multiwavelength photometric and low-resolution optical spectroscopic observations of the low-luminosity Type IIP supernova SN 2024abfl. SN 2024abfl is found to be at the faintest end of Type IIP supernovae with unprecedented flat (0.1 mag/ 100 day) plateau evolution and a mid-plateau absolute magnitude of Mv~-13.8 mag, placing it among one of the faintest Type IIP supernovae discovered to date. SN 2024abfl is adjacent to SN 2018zd in the same host NGC~2146. Using various SN distance measurement probes, we provide independent estimates of the debated distance to the host NGC 2146 (7-9 Mpc). Spectral evolution of SN 2024abfl is found to be similar to other SNe spectra of this subclass but with very narrow line profiles, indicating moderately low expansion velocities of the ejecta. Detailed 1-D hydrodynamical modeling suggests a compact progenitor with an upper limit of 10 Msun, fairly consistent with the directly detected progenitor estimates. It exploded with very low-energy 0.05 foe or less with a very low nickel mass of 0.003 Msun, consistent with the observed parameters. These parameters provide important constraints on the nature of low-energy core-collapse explosions. We discuss possible progenitor scenarios and compare SN 2024abfl with other low-luminosity Type IIP supernovae.",
+    "autores": [
+      "Rishabh Singh Teja",
+      "D. K. Sahu",
+      "G. C. Anupama",
+      "Avinash Singh",
+      "Amrit Dutta",
+      "Gitika Rameshan",
+      "Hrishav Das",
+      "Koji S Kawabata",
+      "Mridweeka Singh",
+      "Varun Bhalerao"
+    ],
+    "categorias": [
+      "astro-ph.HE",
+      "astro-ph.SR"
+    ],
+    "publicado": "2026-05-28T05:03:33Z",
+    "actualizado": "2026-05-28T05:03:33Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29363v1"
+  },
+  {
+    "id_documento": "2605.29362v1",
+    "titulo": "High-order time splitting methods for the nonlinear Gross-Pitaevskii equation",
+    "resumen": "We propose a high-order numerical methodology for computing the ground state and time evolution of the two-dimensional Gross-Pitaevskii equation with harmonic trapping potential. The ground state is obtained by combining normalized gradient flow with time-splitting schemes featuring strictly positive coefficients, which makes them suitable for both dissipative and Hamiltonian regimes and avoids the negative time steps required by classical symplectic methods. The computational cost of these methods grows quadratically with the order, in contrast to the exponential growth of symplectic alternatives. Numerical benchmarks assess ground state convergence under different initializations, long-time preservation of mass and Hamiltonian energy for varying mass constraints, and the cost-accuracy trade-off for orders q = 2, 4,..., 14.",
+    "autores": [
+      "Roberto Ben",
+      "Agustín Besteiro",
+      "Diego Rial"
+    ],
+    "categorias": [
+      "math.NA",
+      "math.AP"
+    ],
+    "publicado": "2026-05-28T05:01:19Z",
+    "actualizado": "2026-05-28T05:01:19Z",
+    "url_pdf": "https://arxiv.org/pdf/2605.29362v1"
   }
 ]
