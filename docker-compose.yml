@@ -1,29 +1,16 @@
+version: '3.8'
+
 services:
-  sistema_principal:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: paperscan_sistema
+  paperscan-app:
+    build: .
+    container_name: paperscan_contenedor
+    ports:
+      - "8501:8501"
     volumes:
+      - .:/app
       - ./datos:/app/datos
       - ./local:/app/local
-    command:
-      [
-        "python",
-        "main.py",
-        "--consulta",
-        "${CONSULTA_USUARIO:-recuperacion de informacion cientifica}",
-        "--max-local",
-        "${MAX_DOCUMENTOS_LOCALES:-3000}",
-        "--max-web",
-        "${MAX_RESULTADOS_WEB:-30}",
-      ]
-
-  descargador_local:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: paperscan_descargador
-    volumes:
-      - ./local:/app/local
-    command: ["python", "local/scrapping.py"]
+    environment:
+      - ARXIV_CONTACTO_EMAIL=correo@dominio.com
+    stdin_open: true
+    tty: true

@@ -3,10 +3,16 @@ __pycache__/
 *.pyo
 *.pyd
 *.log
+
 .venv/
+env/
+venv/
 .git/
 .gitignore
-datos/
+
 local/local_papers/
+datos/
+
 Orientacion.pdf
 Orientacion_extracted.txt
+README.md
