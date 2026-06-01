@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from collections import Counter
-
+from datetime import datetime 
 from modulos.indexacion.indice_invertido import IndiceInvertido
 from modulos.indexacion.preprocesamiento import PreprocesadorTexto
 
@@ -96,18 +96,30 @@ class RecuperadorModeloLenguaje:
             documento_data = self.indice.almacen_documentos.get(doc_id, {})
             fecha_pub = documento_data.get("publicado", "")
             
-            ajuste_posicionamiento = 0.0
-            if fecha_pub:
+            anio_paper = None
+            
+            # Usar el campo fecha si existe (Resultados Web)
+            if fecha_pub and len(fecha_pub) >= 4:
                 try:
                     anio_paper = int(fecha_pub[:4])
-                    edad = max(0, anio_actual - anio_paper)
-                    
+                except: pass
+            
+            # Si no hay fecha, extraerla del ID (Resultados Locales)
+            if anio_paper is None and doc_id:
+                try:
+                    prefijo_anio = int(doc_id[:2])
+                    if prefijo_anio > 80:
+                        anio_paper = 1900 + prefijo_anio
+                    else:
+                        anio_paper = 2000 + prefijo_anio
+                except:
+                    pass
 
-                    ajuste_posicionamiento = 0.1 * math.log(edad + 2)
-                except (ValueError, IndexError):
-                    ajuste_posicionamiento = 0.0
-
-            # 3. PUNTAJE FINAL: Combinación de ambos módulos
+            ajuste_posicionamiento = 0.0
+            if anio_paper is not None:
+                edad = max(0, anio_actual - anio_paper)
+                # Penalización por antigüedad
+                ajuste_posicionamiento = 0.1 * math.log(edad + 2)
 
             puntajes[doc_id] = puntaje_tecnico - ajuste_posicionamiento
 

@@ -64,6 +64,19 @@ def construir_corpus_local_desde_pdfs(
             titulo = _titulo_desde_nombre_archivo(ruta_pdf.name)
             resumen = texto[:2000]
 
+            
+            anio_extraido = ""
+            try:
+               
+                prefijo = int(id_documento[:2])
+                if prefijo > 80:
+                    anio_extraido = f"19{prefijo}-01-01"
+                else:
+                    anio_extraido = f"20{prefijo}-01-01"
+            except:
+                anio_extraido = "" 
+           
+
             try:
                 ruta_relativa = ruta_pdf.relative_to(ruta_carpeta_pdfs.parent)
                 ruta_pdf_local = str(ruta_relativa)
@@ -76,8 +89,8 @@ def construir_corpus_local_desde_pdfs(
                 "resumen": resumen,
                 "autores": [],
                 "categorias": ["investigacion_cientifica", "academico"],
-                "publicado": "",
-                "actualizado": "",
+                "publicado": anio_extraido, 
+                "actualizado": anio_extraido,
                 "url_pdf": "",
                 "ruta_pdf_local": ruta_pdf_local,
                 "fuente": "local_pdf",
